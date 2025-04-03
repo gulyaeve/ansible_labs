@@ -4,27 +4,27 @@ This repo covers Ansible with HowTo: Hands-on LABs (using Multipass: Ubuntu Ligh
 **Keywords:** Ansible, Multi-PC Configuration.
 
 # Quick Look (HowTo): Scenarios - Hands-on LABs
-- [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/omerbsezer/Fast-Ansible/blob/main/Multipass-SSH-Configuration.md)
-- [LAB: Install Ansible and Test Basic Ansible (Ad-Hoc) Commands](https://github.com/omerbsezer/Fast-Ansible/blob/main/Install-Ansible-Basic-Commands.md)
-- [LAB: Implement First Playbook](https://github.com/omerbsezer/Fast-Ansible/blob/main/Implement-First-Playbook.md)
-- [LAB: Playing Docker Module](https://github.com/omerbsezer/Fast-Ansible/blob/main/Docker-Module.md)
-- [LAB: Important (Mostly Possible Used) Modules Sample Tasks](https://github.com/omerbsezer/Fast-Ansible/blob/main/Important-Modules-Sample-Tasks.md)
-- [LAB: Refactoring / Improving Playbook](https://github.com/omerbsezer/Fast-Ansible/blob/main/Refactoring-Playbook.md)
-- [LAB: Targeting Specific Nodes (Grouping)](https://github.com/omerbsezer/Fast-Ansible/blob/main/Targeting-Specific-Node.md)
-- [LAB: Adding Tags](https://github.com/omerbsezer/Fast-Ansible/blob/main/Tags.md)
-- [LAB: Managing Files](https://github.com/omerbsezer/Fast-Ansible/blob/main/Managing-Files.md)
-- [LAB: Managing Services](https://github.com/omerbsezer/Fast-Ansible/blob/main/Managing-Services.md)
-- [LAB: Adding Users](https://github.com/omerbsezer/Fast-Ansible/blob/main/Adding-User.md)
-- [LAB: Roles](https://github.com/omerbsezer/Fast-Ansible/blob/main/Roles.md)
-- [LAB: Host Variables](https://github.com/omerbsezer/Fast-Ansible/blob/main/Host-Variables.md)
-- [LAB: Handlers](https://github.com/omerbsezer/Fast-Ansible/blob/main/Handlers.md)
-- [LAB: Templates](https://github.com/omerbsezer/Fast-Ansible/blob/main/Templates.md)
+- [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/Fast-Ansible/blob/main/Multipass-SSH-Configuration.md)
+- [LAB: Install Ansible and Test Basic Ansible (Ad-Hoc) Commands](https://github.com/gulyaeve/ansible_labs/blob/main/Install-Ansible-Basic-Commands.md)
+- [LAB: Implement First Playbook](https://github.com/gulyaeve/ansible_labs/blob/main/Implement-First-Playbook.md)
+- [LAB: Playing Docker Module](https://github.com/gulyaeve/ansible_labs/blob/main/Docker-Module.md)
+- [LAB: Important (Mostly Possible Used) Modules Sample Tasks](https://github.com/gulyaeve/ansible_labs/blob/main/Important-Modules-Sample-Tasks.md)
+- [LAB: Refactoring / Improving Playbook](https://github.com/gulyaeve/ansible_labs/blob/main/Refactoring-Playbook.md)
+- [LAB: Targeting Specific Nodes (Grouping)](https://github.com/gulyaeve/ansible_labs/blob/main/Targeting-Specific-Node.md)
+- [LAB: Adding Tags](https://github.com/gulyaeve/ansible_labs/blob/main/Tags.md)
+- [LAB: Managing Files](https://github.com/gulyaeve/ansible_labs/blob/main/Managing-Files.md)
+- [LAB: Managing Services](https://github.com/gulyaeve/ansible_labs/blob/main/Managing-Services.md)
+- [LAB: Adding Users](https://github.com/gulyaeve/ansible_labs/blob/main/Adding-User.md)
+- [LAB: Roles](https://github.com/gulyaeve/ansible_labs/blob/main/Roles.md)
+- [LAB: Host Variables](https://github.com/gulyaeve/ansible_labs/blob/main/Host-Variables.md)
+- [LAB: Handlers](https://github.com/gulyaeve/ansible_labs/blob/main/Handlers.md)
+- [LAB: Templates](https://github.com/gulyaeve/ansible_labs/blob/main/Templates.md)
 
 # Table of Contents
 - [Введение](#motivation)
 - [Что такое Ansible?](#what_is_ansible)
 - [Как работает Ansible?](#how_ansible_works)
-- [Creating LAB Environment](#lab_environment)
+- [Подготовка лабораторного стенда](#lab_environment)
 - [Ansible Basic (Ad-Hoc) Commands](#commands)    
 - [Ansible Modules](#modules)
 - [Ansible Playbooks](#playbooks)
@@ -51,7 +51,7 @@ This repo covers Ansible with HowTo: Hands-on LABs (using Multipass: Ubuntu Ligh
 - Ansible можно использовать как на базе своей локальной инфраструктуры так и на облачной.
 - Это бесплатно, с открытым исходным кодом (https://github.com/ansible/ansible) и с обширной поддержкой сообщества.
 - Команды, задачи представлены в виде кода, согласно подходу "Инфраструктура как код" - Infrastructure As Code (IaC).
-  - Благодаря IaC, задачи легко хранить, контролировать версии, повторить и тестировать.
+  - Благодаря IaC, задачи легко хранить, контролировать версии, повторять и тестировать.
   - Благодаря IaC, вся конфигурация определяется декларативным подходом.
 - **Agentless:** - для запуска не требуется агент на рабочей машине.
 - **Parallel Run:** Ansible позволяет запускать одну и ту же задачу на нескольких хостах параллельно.
@@ -85,12 +85,12 @@ This repo covers Ansible with HowTo: Hands-on LABs (using Multipass: Ubuntu Ligh
 
   ![image](https://user-images.githubusercontent.com/10358317/202699093-62fcc145-c023-43ed-af51-0866393f0701.png) (ref: kreyman.de)
 
-## Creating LAB Environment <a name="lab_environment"></a>
+## Подготовка лабораторного стенда <a name="lab_environment"></a>
 
 - For testing Ansible, Ansible modules, it is required to get multiple PC or virtual machine. 
 - So we are using Multipass that is lightweight, fast, easy to use Ubuntu VM (on demand for any workstation).
 - Install on Linux, Windows and MacOs: https://multipass.run/install
-- [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/omerbsezer/Fast-Ansible/blob/main/Multipass-SSH-Configuration.md)
+- [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
 
 ## Ansible Basic (Ad-Hoc) Commands <a name="commands"></a>
 
@@ -135,7 +135,7 @@ ansible all --list-hosts
 172.21.75.98
 ``` 
 - Go to LAB to learn:
-  - [LAB: Install Ansible and Test Basic Ansible (Ad-Hoc) Commands](https://github.com/omerbsezer/Fast-Ansible/blob/main/Install-Ansible-Basic-Commands.md)
+  - [LAB: Install Ansible and Test Basic Ansible (Ad-Hoc) Commands](https://github.com/gulyaeve/ansible_labs/blob/main/Install-Ansible-Basic-Commands.md)
 
 ## Ansible Modules <a name="modules"></a>
 
@@ -149,10 +149,10 @@ ansible all --list-hosts
 - Control node sends these modules to the nodes.
 
 - Go to LAB to learn:
-  - [LAB: Playing Docker Module](https://github.com/omerbsezer/Fast-Ansible/blob/main/Docker-Module.md)
+  - [LAB: Playing Docker Module](https://github.com/gulyaeve/ansible_labs/blob/main/Docker-Module.md)
 
 - Go to LAB to learn:  
-  - [LAB: Important (Mostly Possible Used) Modules Sample Tasks](https://github.com/omerbsezer/Fast-Ansible/blob/main/Important-Modules-Sample-Tasks.md)
+  - [LAB: Important (Mostly Possible Used) Modules Sample Tasks](https://github.com/gulyaeve/ansible_labs/blob/main/Important-Modules-Sample-Tasks.md)
   
 - All Modules in Ansible: 
   - [Cloud Modules (AWS, Azure, Digital Ocean, Docker, Google Cloud, OpenStack, Vmware)](https://docs.ansible.com/ansible/2.9/modules/list_of_cloud_modules.html)
@@ -203,9 +203,9 @@ ansible all --list-hosts
   ![image](https://user-images.githubusercontent.com/10358317/203531873-cf746f02-67cd-4d2d-98f8-fd7b4900b614.png) 
     
 - Go to LAB to learn how playbook is created:
-  - [LAB: Implement First Playbook](https://github.com/omerbsezer/Fast-Ansible/blob/main/Implement-First-Playbook.md)
+  - [LAB: Implement First Playbook](https://github.com/gulyaeve/ansible_labs/blob/main/Implement-First-Playbook.md)
 
-- [LAB: Refactoring / Improving Playbook](https://github.com/omerbsezer/Fast-Ansible/blob/main/Refactoring-Playbook.md)
+- [LAB: Refactoring / Improving Playbook](https://github.com/gulyaeve/ansible_labs/blob/main/Refactoring-Playbook.md)
 
 ## Inventory File - Targeting Specific Nodes <a name="inventory"></a>
 
@@ -218,7 +218,7 @@ ansible all --list-hosts
 172.21.75.98
 ``` 
 - Go to LAB to create and use inventory file with playbook:
-  - [LAB: Targeting Specific Nodes (Grouping)](https://github.com/omerbsezer/Fast-Ansible/blob/main/Targeting-Specific-Node.md)
+  - [LAB: Targeting Specific Nodes (Grouping)](https://github.com/gulyaeve/ansible_labs/blob/main/Targeting-Specific-Node.md)
 
 ## Tags <a name="tags"></a>
 - With tags, some specific part of the code (playbook's play) could be run.
@@ -230,7 +230,7 @@ ansible-playbook --tags ubuntu --ask-become-pass site.yml
 ![image](https://user-images.githubusercontent.com/10358317/203546898-9dc1b0b5-929a-42ba-9cc4-7d919377aaba.png)
 
 - Go to LAB to learn how to use tags:
-  - [LAB: Adding Tags](https://github.com/omerbsezer/Fast-Ansible/blob/main/Tags.md)
+  - [LAB: Adding Tags](https://github.com/gulyaeve/ansible_labs/blob/main/Tags.md)
 
 ## Managing Files <a name="files"></a>
 - It is possible to transfer file from control node to all workers nodes, to download zip file from internet and to unzip files with playbooks.
@@ -238,7 +238,7 @@ ansible-playbook --tags ubuntu --ask-become-pass site.yml
   ![image](https://user-images.githubusercontent.com/10358317/203547001-fb106bbe-1171-4ca0-9d8d-5343907c6cf9.png)
   
 - Go to LAB to learn how:
-  - [LAB: Managing Files](https://github.com/omerbsezer/Fast-Ansible/blob/main/Managing-Files.md)
+  - [LAB: Managing Files](https://github.com/gulyaeve/ansible_labs/blob/main/Managing-Files.md)
 
 ## Managing Services <a name="services"></a>
 - It is possible to manage services (create, start, stop, restart, configure service file)
@@ -254,7 +254,7 @@ ansible-playbook --tags ubuntu --ask-become-pass site.yml
 ```
 
 - Go to LAB to learn how:
-  - [LAB: Managing Services](https://github.com/omerbsezer/Fast-Ansible/blob/main/Managing-Services.md)
+  - [LAB: Managing Services](https://github.com/gulyaeve/ansible_labs/blob/main/Managing-Services.md)
 
 ## Adding Users <a name="users"></a>
 - It is possible to manage users (add users, create SSH keys for users, add user as sudoers)
@@ -267,7 +267,7 @@ ansible-playbook --tags ubuntu --ask-become-pass site.yml
 ```
 
 - Go to LAB to learn how:
-  - [LAB: Adding Users](https://github.com/omerbsezer/Fast-Ansible/blob/main/Adding-User.md)
+  - [LAB: Adding Users](https://github.com/gulyaeve/ansible_labs/blob/main/Adding-User.md)
 
 ## Roles <a name="roles"></a>
 - Roles are defined to simplify, control your Ansible code like sofware code. 
@@ -276,7 +276,7 @@ ansible-playbook --tags ubuntu --ask-become-pass site.yml
   ![image](https://user-images.githubusercontent.com/10358317/203546694-cb961a0b-e1e3-4e06-9f2d-0e70f1ef6cc8.png)
 
 - Go to LAB to learn how:
-  - [LAB: Roles](https://github.com/omerbsezer/Fast-Ansible/blob/main/Roles.md)
+  - [LAB: Roles](https://github.com/gulyaeve/ansible_labs/blob/main/Roles.md)
 
 ## Host Variables <a name="host_variables"></a>
 - It helps to define variables which are dependent to the hosts. 
@@ -286,7 +286,7 @@ ansible-playbook --tags ubuntu --ask-become-pass site.yml
   ![image](https://user-images.githubusercontent.com/10358317/203547770-7eef113c-c9ce-4043-9b02-588ba86fd747.png)
 
 - Go to LAB to learn how:
-  - [LAB: Host Variables](https://github.com/omerbsezer/Fast-Ansible/blob/main/Host-Variables.md)
+  - [LAB: Host Variables](https://github.com/gulyaeve/ansible_labs/blob/main/Host-Variables.md)
 
 ## Handlers <a name="handlers"></a>
 - To trigger/notify other Ansible code, handlers are used.
@@ -294,7 +294,7 @@ ansible-playbook --tags ubuntu --ask-become-pass site.yml
   ![image](https://user-images.githubusercontent.com/10358317/203547977-c5ced352-d323-4be6-bcd0-31a6d3df2735.png)
 
 - Go to LAB to learn how:
-  - [LAB: Handlers](https://github.com/omerbsezer/Fast-Ansible/blob/main/Handlers.md)
+  - [LAB: Handlers](https://github.com/gulyaeve/ansible_labs/blob/main/Handlers.md)
 
 ## Templates <a name="templates"></a>
 - Ansible template module does two things: 
@@ -314,7 +314,7 @@ ansible-playbook findtest.yaml -e "DIR=/apps/Tomcat FILEEXT=*.log DAYSOLD=30"
 ```
 
 - Go to LAB to learn how:
-  - [LAB: Templates](https://github.com/omerbsezer/Fast-Ansible/blob/main/Templates.md)
+  - [LAB: Templates](https://github.com/gulyaeve/ansible_labs/blob/main/Templates.md)
 
 ## Debugging <a name="debugging"></a>
 
