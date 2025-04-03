@@ -21,7 +21,7 @@ This repo covers Ansible with HowTo: Hands-on LABs (using Multipass: Ubuntu Ligh
 - [LAB: Templates](https://github.com/omerbsezer/Fast-Ansible/blob/main/Templates.md)
 
 # Table of Contents
-- [Motivation](#motivation)
+- [Введение](#motivation)
 - [What is Ansible?](#what_is_ansible)
 - [How Ansible Works?](#how_ansible_works)
 - [Creating LAB Environment](#lab_environment)
@@ -42,23 +42,23 @@ This repo covers Ansible with HowTo: Hands-on LABs (using Multipass: Ubuntu Ligh
 - [Other Useful Resources Related Ansible](#resource)
 - [References](#references)
 
-## Motivation <a name="motivation"></a>
+## Введение <a name="motivation"></a>
 
-Why should we use / learn Ansible? 
+Для чего используется Ansible?
 
-- Ansible automates tasks and commands to manage multiple nodes (servers, PCs).
-- Ansible is a state-of-the-art automation tool. Many companies use it.
-- Ansible can be used both on-premises and cloud environment.
-- It is free, open source (https://github.com/ansible/ansible) and has huge community.
-- Commands, tasks, codes turn into the Infrastructure As Code (IaC).
-  - With IaC, tasks is savable, versionable, repetable and testable.
-  - With IaC, desired configuration is defined as 'Declerative Way'.
-- **Agentless:** On the worker node, any agent app is not required to run.
-- **Parallel Run:** Ansible runs the same task in multiple hosts by default in parallel.
-- It runs tasks both on Linux and Windows PCs.
-- It has well-designed documentation (https://docs.ansible.com)
-- Ansible uses SSH to communicate with other nodes.
-- Ansible handles many tasks using its modules.
+- Ansible позволяет автоматизировать задачи и команды на множество машин (серверы, ПК).
+- Ansible это очень продвинутый инструмент для автоматизаций, используемый многими компаниями.
+- Ansible можно использовать как на базе своей локальной инфраструктуры так и на облачной.
+- Это бесплатно, с открытым исходным кодом (https://github.com/ansible/ansible) и с обширной поддержкой сообщества.
+- Команды, задачи, код представлены в виде кода - Infrastructure As Code (IaC).
+  - Благодаря IaC, задачи легко хранить, контролировать версии, повторить и тестировать.
+  - Благодаря IaC, вся конфигурация определяется декларативным подходом.
+- **Agentless:** - для запуска не требуется агент на рабочей машине.
+- **Parallel Run:** Ansible позволяет запускать одну и ту же задачу на нескольких хостах параллельно.
+- Задачи можно запускать как на Linux так и на Windows.
+- Есть подробная документация (https://docs.ansible.com)
+- Ansible использует SSH для связи с другими машинами.
+- Ansible управляет большинством задач при помощи модулей.
 
   ![image](https://user-images.githubusercontent.com/10358317/202701707-b160e35c-7a05-43e8-93c7-b626c8054aa9.png) (ref: medium)
 
