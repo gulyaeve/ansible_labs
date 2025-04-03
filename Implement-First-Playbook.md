@@ -10,7 +10,7 @@ This scenario shows:
 ### Prerequisite
 
 - You should have a look following lab, nodes that are created in that LAB, are using in ansible commands
-  - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/omerbsezer/Fast-Ansible/blob/main/Multipass-SSH-Configuration.md)
+  - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
 
 ### Steps
 
