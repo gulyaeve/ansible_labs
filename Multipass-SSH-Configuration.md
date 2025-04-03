@@ -1,19 +1,19 @@
 ## LAB: Multipass-SSH-Configuration (Create Ansible Test Environment)
 
-This scenario shows:
-- how to install multipass
-- how to create control node, managed nodes
-- how to configure ssh between control node and managed nodes
+В этой лабораторной работе:
+- установка multipass
+- создание control node, managed nodes
+- настройка ssh между control node и managed nodes
 
 
 
-### Steps
+### Шаги
 
-- "Multipass is a mini-cloud on your workstation using native hypervisors of all the supported plaforms (Windows, macOS and Linux)"
-- Fast to install and to use.
+- "Multipass представляет собой мини-облако (mini-cloud) на вашей рабочей станции, использующее нативный гипервизор в разных ОС (Windows, macOS and Linux)"
+- Быстрая установка и использование.
 - **Link:** https://multipass.run/
-- Install on Linux, Windows and MacOs: https://multipass.run/install
-- After installing, we can create VMs on our local machine.
+- Установка на Linux, Windows и MacOs: https://multipass.run/install
+- После установки будет возможность создавать ВМ на локальной машине.
 
 ``` 
 # creating controlnode, managed nodes (node1, node2, etc.)
@@ -26,7 +26,7 @@ multipass list
 
 ![image](https://user-images.githubusercontent.com/10358317/201082045-b90b645b-c6b5-4d8f-9bd6-4bb09c0f0ea7.png)
 
-- Connect VMs by opening shells
+- Подключение к ВМ через открытие командной оболочки
 
 ``` 
 # get shell on controlnode
@@ -46,8 +46,8 @@ sudo apt install net-tools
 ifconfig
 ``` 
 
-- Create ssh public key on control plane
-- Copy the public key from control plane
+- Создайте ssh public key на controlnode
+- Копируйте public key с controlnode
 
 ``` 
 > on controlnode
@@ -57,7 +57,7 @@ cat ~/.ssh/id_rsa.pub (copy the value)
 
 ![image](https://user-images.githubusercontent.com/10358317/201083201-8e0a9bfb-8001-429e-881f-d38a7c970015.png)
 
-- Paste copied public key (control plane) into the authorized_keys in each managed nodes.
+- Вставьте скопированный public key (controlnode) в файл authorized_keys на каждой managed nodes.
 
 ``` 
 cd .ssh (on each workers)
@@ -67,7 +67,7 @@ nano authorized_keys
 
 ![image](https://user-images.githubusercontent.com/10358317/201083610-d4141690-d5d7-4f9c-90ba-dbfb6743b2d1.png)
 
-- List all VMs to get IPs
+- Список всех ВМ с ip-адресами
 
 ```
 multipass list
@@ -75,7 +75,7 @@ multipass list
 
 ![image](https://user-images.githubusercontent.com/10358317/201084356-c34f3629-7e86-4e15-9cad-3361b5a49f34.png)
 
-- SSH from controlplane to node1
+- SSH-подключение с controlnode в node1
 
 ```
 ssh <IP>

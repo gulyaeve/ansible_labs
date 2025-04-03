@@ -1,9 +1,9 @@
-# Fast-Ansible
-This repo covers Ansible with HowTo: Hands-on LABs (using Multipass: Ubuntu Lightweight VMs): Ad-Hoc Commands, Modules, Playbooks, Tags, Managing Files and Servers, Users, Roles, Handlers, Host Variables, Templates and many details. Possible usage scenarios are aimed to update over time.
+# Ansible Labs
+Данный репозиторий содержит лабораторные работы по Ansible (используется Multipass: легковесные ВМ Ubuntu): Ad-Hoc команды, модули, плейбуки, тэги (Tags), управление файлами и серверами, пользователи, роли, хенлеры, переменные хостов, шаблоны и многое другое.
 
 **Keywords:** Ansible, Multi-PC Configuration.
 
-# Quick Look (HowTo): Scenarios - Hands-on LABs
+# Список лабораторных работ 
 - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/Fast-Ansible/blob/main/Multipass-SSH-Configuration.md)
 - [LAB: Install Ansible and Test Basic Ansible (Ad-Hoc) Commands](https://github.com/gulyaeve/ansible_labs/blob/main/Install-Ansible-Basic-Commands.md)
 - [LAB: Implement First Playbook](https://github.com/gulyaeve/ansible_labs/blob/main/Implement-First-Playbook.md)
@@ -20,12 +20,12 @@ This repo covers Ansible with HowTo: Hands-on LABs (using Multipass: Ubuntu Ligh
 - [LAB: Handlers](https://github.com/gulyaeve/ansible_labs/blob/main/Handlers.md)
 - [LAB: Templates](https://github.com/gulyaeve/ansible_labs/blob/main/Templates.md)
 
-# Table of Contents
+# Содержание
 - [Введение](#motivation)
 - [Что такое Ansible?](#what_is_ansible)
 - [Как работает Ansible?](#how_ansible_works)
 - [Подготовка лабораторного стенда](#lab_environment)
-- [Ansible Basic (Ad-Hoc) Commands](#commands)    
+- [Базовые команды Ansible (Ad-Hoc Commands)](#commands)    
 - [Ansible Modules](#modules)
 - [Ansible Playbooks](#playbooks)
 - [Inventory File - Targeting Specific Nodes](#inventory)
@@ -87,12 +87,12 @@ This repo covers Ansible with HowTo: Hands-on LABs (using Multipass: Ubuntu Ligh
 
 ## Подготовка лабораторного стенда <a name="lab_environment"></a>
 
-- For testing Ansible, Ansible modules, it is required to get multiple PC or virtual machine. 
-- So we are using Multipass that is lightweight, fast, easy to use Ubuntu VM (on demand for any workstation).
-- Install on Linux, Windows and MacOs: https://multipass.run/install
+- Для тестирования Ansible, Ansible модулей, потребуется несколько ПК или виртуальных машин. 
+- В данном курсе будет использоваться Multipass - легковесное решение для быстрого запуска ВМ на базе Ubuntu.
+- Установка на Linux, Windows и MacOs: https://multipass.run/install
 - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
 
-## Ansible Basic (Ad-Hoc) Commands <a name="commands"></a>
+## Базовые команды Ansible (Ad-Hoc Commands) <a name="commands"></a>
 
 - Commands can be sent to the all worker nodes from control node.  
 - Code structure: 
