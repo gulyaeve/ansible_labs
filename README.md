@@ -22,8 +22,8 @@ This repo covers Ansible with HowTo: Hands-on LABs (using Multipass: Ubuntu Ligh
 
 # Table of Contents
 - [Введение](#motivation)
-- [What is Ansible?](#what_is_ansible)
-- [How Ansible Works?](#how_ansible_works)
+- [Что такое Ansible?](#what_is_ansible)
+- [Как работает Ansible?](#how_ansible_works)
 - [Creating LAB Environment](#lab_environment)
 - [Ansible Basic (Ad-Hoc) Commands](#commands)    
 - [Ansible Modules](#modules)
@@ -50,7 +50,7 @@ This repo covers Ansible with HowTo: Hands-on LABs (using Multipass: Ubuntu Ligh
 - Ansible это очень продвинутый инструмент для автоматизаций, используемый многими компаниями.
 - Ansible можно использовать как на базе своей локальной инфраструктуры так и на облачной.
 - Это бесплатно, с открытым исходным кодом (https://github.com/ansible/ansible) и с обширной поддержкой сообщества.
-- Команды, задачи, код представлены в виде кода - Infrastructure As Code (IaC).
+- Команды, задачи представлены в виде кода, согласно подходу "Инфраструктура как код" - Infrastructure As Code (IaC).
   - Благодаря IaC, задачи легко хранить, контролировать версии, повторить и тестировать.
   - Благодаря IaC, вся конфигурация определяется декларативным подходом.
 - **Agentless:** - для запуска не требуется агент на рабочей машине.
@@ -62,31 +62,26 @@ This repo covers Ansible with HowTo: Hands-on LABs (using Multipass: Ubuntu Ligh
 
   ![image](https://user-images.githubusercontent.com/10358317/202701707-b160e35c-7a05-43e8-93c7-b626c8054aa9.png) (ref: medium)
 
-- Ansible also is used by other important applications (e.g. Open Source Gating CI Tools: [Zuul-CI](https://zuul-ci.org/))
+- Ansible лежит в основе других приложений (например, Open Source Gating CI Tools: [Zuul-CI](https://zuul-ci.org/))
+- Ansible используется для управления конфигурациями на удаленных машинах и его можно легко интегрировать в другие решения (например, [Terraform](https://www.terraform.io/)).
 
-- Ansible is used for configuration management on the nodes, Terraform is provisioning tool that uses to create/provision Cloud Infrastructure objects/items (e.g. Virtual Private Cloud, Virtual Machines, Subnets, etc.)
+## Что такое Ansible? <a name="what_is_ansible"></a>
+- "Ansible это программый инструмент, предоставляющий простой и мощный способ автоматизировать кросс-платформенные удаленные машины." (ref: Opensource.com)
 
-  ![image](https://user-images.githubusercontent.com/10358317/202700302-d651cf08-dd55-44ea-a88c-8ee4186d9438.png) (ref: ibm.github.io)
+## Как работает Ansible? <a name="how_ansible_works"></a>
 
-- Ansible can be easily integrated with different technologies (e.g. [Terraform](https://www.terraform.io/)).
-
-## What is Ansible? <a name="what_is_ansible"></a>
-- "Ansible is a software tool that provides simple but powerful automation for cross-platform computer support." (ref: Opensource.com)
-
-## How Ansible Works? <a name="how_ansible_works"></a>
-
-- In Ansible, there are two categories of computers: the control node and managed nodes. The control node is a computer that runs Ansible. There must be at least one control node, although a backup control node may also exist. A managed node is any device being managed by the control node. 
-- Ansible works by connecting to nodes (clients, servers, or whatever you're configuring) on a network, and then sending a small program called an Ansible module to that node. Ansible executes these modules over SSH and removes them when finished.(ref: Opensource.com)
-- The only requirement for this interaction is that your Ansible control node has login access to the managed nodes. SSH keys are the most common way to provide access, but other forms of authentication are also supported. (ref: Opensource.com)
-- There are files that are for configuration and usage of Ansible:
-  - **Inventory File**: It contains and groups worker nodes' IP and domain names. Ansible knows and sends commands using these file, typically located at /etc/ansible/hosts.
-  - **Configuration (.cfg) File**: It contains configuration (e.g. inventory file, key_file, remote_user, etc.)
-  - **Playbook**: Playbooks are one of the core features of Ansible and tell Ansible what to execute. It is a file containing a series of tasks to be executed on a remote server. Playbooks are written in YAML format. 
-- Other Important Parts:  
-  - **Control Machine / Node**: a system where Ansible is installed and configured to connect and execute commands on nodes.
-  - **Node (Worker node)**: a server controlled by Ansible.
-  - **Role**: a collection of playbooks and other files that are relevant to a goal such as installing a web server.
-  - **Play**: a full Ansible run. A play can have several playbooks and roles, included from a single playbook that acts as entry point.
+- При использовании Ansible, есть две категории компьютеров: управляющий хост (control node) и управляемые хосты - клиенты (managed nodes). Ansible запускается на управляющем компьютере. Необходим как минимум одни управляющий хост, может присутствовать резервный или конфигурация может быть доступна другим специалистам. Клиентом может быть любое устройство, к которому у управляющего хоста есть доступ. 
+- Ansible осуществляет подключение к клиентам (серверы, ПК, сетевое оборудование, IoT и прочее) по сети, и отправляет на них небольшие программы-скрипты, называемые Ansible модулями. Ansible запускает данные модули посредством SSH и удаляет их после завершения.(ref: Opensource.com)
+- Основное требование для использования Ansible - управляющий хост должен иметь доступ на клиенты. SSH ключи наиболее предпочтительный способ для предоставления доступа, однако поддерживаются и другие формы аутентификации. (ref: Opensource.com)
+- Absible использует следующие файлы для настройки и управления клиентами:
+  - **Inventory File**: файл инвентаризации - содержит группы клиентов, их IP-адреса или доменные имена. Ansible использует этот файл для отправки команд на клиенты, обычно располагается в /etc/ansible/hosts.
+  - **Configuration (.cfg) File**: файл конфигурации - содержит настройки, такие как: расположение inventory file, расположение key_file, имена удаленных пользователей и другие.
+  - **Playbook**: файл сценария (плейбук) - одна из ключевых функций Ansible. Файл может содержать несколько задач, которые необходмо выполнить на клиентах. Плейбуки пишутся на YAML. 
+- Другие определения:  
+  - **Control Machine / Node**: управляющий хост - система, где установлен Ansible и настроен на подключение и выполнение команд на клиентских машинах.
+  - **Node (Worker node)**: клиент - хост, который настраивается при помощи Ansible.
+  - **Role**: роль - коллекция плейбуков и других файлов, необходимых для достижения определенной цели на клиентах, например установка веб-сервера с определенными настройками и файлами.
+  - **Play**: запуск Ansible. При помощи play можно запустить несколько плейбуков и ролей, включенных (include) в один плейбук - точку входа.
 
   ![image](https://user-images.githubusercontent.com/10358317/202699093-62fcc145-c023-43ed-af51-0866393f0701.png) (ref: kreyman.de)
 
