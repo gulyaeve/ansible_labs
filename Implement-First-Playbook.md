@@ -1,22 +1,22 @@
 ## LAB: Implement First Playbook
 
-This scenario shows:
-- how to create ansible playbooks
-- how to run "apt install" command in the playbook
-- how to run "update" command in the playbook
-- how to run "apt remove" command in the playbook
-- how to run command according to distribution (when)
+В этой лабораторной работе:
+- как создавать плейбуки в ansible
+- запуск команды "apt install" в плейбуке 
+- запуск команды "update" в плейбуке 
+- запуск команды "apt remove" в плейбуке 
+- запуск команды в зависимости от дистрибутива на хосте (when)
 
-### Prerequisite
+### Подготовка
 
-- You should have a look following lab, nodes that are created in that LAB, are using in ansible commands
+- Проверьте выполнены ли у вас данные лабораторные работы:
   - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
 
-### Steps
+### Шаги
 
-- Create playbook to install apache2 app on nodes
+- Создайте плейбук для устрановка веб-сервера apache2
 
-#### "Apt Install" command in the playbook
+#### Команда "Apt Install" в плейбуке
 
 ``` 
 nano install_apache.yml
@@ -36,33 +36,33 @@ nano install_apache.yml
 
 ![image](https://user-images.githubusercontent.com/10358317/201100926-480de972-078e-4541-9f06-30b625c71585.png)
 
-- Run playbook
+- Запустите плейбук 
 
 ``` 
 ansible-playbook --ask-become-pass install_apache.yml
 ``` 
 
-- Under Task "install apache2 package", status are changed, this means installing apache2 packet on the nodes successfully
+- Для задачи "install apache2 package" изменился статус, это значит что пакет apache2 был установлен успешно 
 
 ![image](https://user-images.githubusercontent.com/10358317/201101843-efc4262d-5506-404e-b505-0d91131154df.png)
 
-- If you run again that command, it is seen that "ok" under the Task "install apache2 package", it means that there is no change
+- Если запустить повторно, то статус будет "ok" у задачи "install apache2 package", это значит что установка повторно не выполнялась
 
 ![image](https://user-images.githubusercontent.com/10358317/201102379-69fe5e2b-7793-421d-add0-25d88b19b969.png)
 
-- When you enter the one of the nodes' IP on the browser, you can see that the apache2 server is installed on it
+- Если ввести адрес хоста в браузере, вы сможете увидеть, что веб-сервер apache2 установлен
 
 ![image](https://user-images.githubusercontent.com/10358317/201103096-a62b7d08-1208-485f-8bd4-de5b5c7b1e06.png)
 
-- If you enter "never-existed-tect-package" as apt name, you can see that it cannot install on the nodes, because it does not exist.
+- Если ввести имя несуществующего пакета, вы увидите что его невозможно установить.
 
 ![image](https://user-images.githubusercontent.com/10358317/201104092-7a38235c-1a48-4f16-8c2e-9269be6d7faa.png)
 
 ![image](https://user-images.githubusercontent.com/10358317/201103961-7a10a711-d6e4-4aac-b05c-f5d5172f25ad.png)
 
-#### "Update" command in the playbook
+#### Команда "Update" в плеубуке 
 
-- Add "apt update" and install other packages
+- Добавьте "apt update" и установите другие пакеты
 
 ``` 
 ---
@@ -92,7 +92,7 @@ ansible-playbook --ask-become-pass install_apache.yml
 
 ![image](https://user-images.githubusercontent.com/10358317/201105473-2697a57a-4334-484f-97d9-501452007259.png)
 
-- Add "state: latest" to install latest version of the app
+- Добавьте "state: latest" чтобы установить последнюю версию пакета
 
 ``` 
 ---
@@ -118,10 +118,10 @@ ansible-playbook --ask-become-pass install_apache.yml
 
 ![image](https://user-images.githubusercontent.com/10358317/201106278-537221bf-878a-4ee3-b211-83e9e52e252f.png)
 
-#### "Apt remove" command in the playbook
+#### Команда "Apt remove" в плейбуке
 
-- Create "remove_apache.yml" to uninstall apps.
-- Use "state:absent" to uninstall.
+- Создайте "remove_apache.yml" для удаления пакетов.
+- Используйте "state:absent" для удаления.
 
 ``` 
 ---
@@ -149,14 +149,14 @@ ansible-playbook --ask-become-pass remove_apache.yml
 
 ![image](https://user-images.githubusercontent.com/10358317/201107516-ff2b2337-a01c-401d-af0a-177ac38c58c7.png)
 
-- When browsing IP to see whether apache2 works or not, it is seen that apache2 server was uninstalled.
+- При попытке открыть адрес в браузере вы увидите что веб-сервер apache2 удален.
 
 ![image](https://user-images.githubusercontent.com/10358317/201107771-df10bf6e-367c-4235-a779-2703958b8774.png)
 
-#### Command According to the Distribution ("when")
+#### Команды для определенных дистрибутивов ("when")
 
-- Add 'when: ansible-distribution == "Ubuntu"' into the install_apache.yaml file
-- With 'when', it is possible to install command on specific distro (e.g. Ubuntu, Centos)
+- Добавьте 'when: ansible-distribution == "Ubuntu"' в файл install_apache.yaml
+- Используя 'when', появляется возможность выполнять отдельные команды для разных систем (например, Ubuntu, Centos)
 
 ``` 
 ---
@@ -182,7 +182,7 @@ ansible-playbook --ask-become-pass remove_apache.yml
       state: latest
     when: ansible_distribution == "Ubuntu"
 ```
-- To get more information about the specific node. 
+- Чтобы получить информацию о хосте. 
 
 ```
 ansible all -m gather_facts --limit 172.21.79.85 | grep ansible_distribution
@@ -190,9 +190,9 @@ ansible all -m gather_facts --limit 172.21.79.85 | grep ansible_distribution
 
 ![image](https://user-images.githubusercontent.com/10358317/201655623-98733d68-3624-48a1-8589-d6ec62bbf7aa.png)
 
-- It is possible to use 'when' commands with other details (e.g. "ansible_distribution_version": "22.04")
+- Команду 'when' можно использовать и с другими данными (например, "ansible_distribution_version": "22.04")
 
-- Adding new tasks for 'CentOS' distribution
+- Добавьте новую задачу для 'CentOS'
 
 ```
 ---
@@ -235,11 +235,11 @@ ansible all -m gather_facts --limit 172.21.79.85 | grep ansible_distribution
       state: latest
     when: ansible_distribution == "CentOS"
 ```
-Run: 
+Запустите: 
 ``` 
 ansible-playbook --ask-become-pass install_apache.yml
 ``` 
-- Tasks that are defined for 'CentOS' are skipped
+- Задача для 'CentOS' была пропущена
 
 ![image](https://user-images.githubusercontent.com/10358317/201657035-511cf7aa-8b17-4f87-95f9-4ea8d2772b1d.png)
 

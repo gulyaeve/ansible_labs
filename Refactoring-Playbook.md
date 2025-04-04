@@ -1,16 +1,17 @@
 ## LAB: Refactoring / Improving Playbook
 
-This scenario shows:
-- how to refactor / improve playbook 
+В этой лабораторной работе:
+- как рефакторить и улучшать плейбуки 
 
-### Prerequisite
+### Подготовка
 
-- You should have a look following lab, nodes that are created in that LAB, are using in ansible commands
+- Проверьте выполнены ли у вас данные лабораторные работы:
   - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
+  - [LAB: Implement First Playbook](https://github.com/gulyaeve/ansible_labs/blob/main/Implement-First-Playbook.md)
 
-### Steps
+### Шаги
 
-- We have playbook that is created in this LAB: https://github.com/gulyaeve/ansible_labs/blob/main/Implement-First-Playbook.md
+- У нас есть плейбук, созданный в этой лабораторной работе: https://github.com/gulyaeve/ansible_labs/blob/main/Implement-First-Playbook.md
 
 ``` 
 ---

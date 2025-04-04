@@ -28,7 +28,7 @@
 - [Базовые команды Ansible (Ad-Hoc Commands)](#commands)    
 - [Модули Ansible](#modules)
 - [Плейбуки Ansible](#playbooks)
-- [Inventory File - Targeting Specific Nodes](#inventory)
+- [Файл инвентаризации - указание определенных хостов](#inventory)
 - [Tags](#tags)
 - [Managing Files](#files)
 - [Managing Services](#services)
@@ -137,48 +137,13 @@ ansible all --list-hosts
 - Перейдите к лабораторной работе:
   - [LAB: Install Ansible and Test Basic Ansible (Ad-Hoc) Commands](https://github.com/gulyaeve/ansible_labs/blob/main/Install-Ansible-Basic-Commands.md)
 
-## Модули Ansible <a name="modules"></a>
-
-- Модули: Небольшие программы для выполнения определенной задачи.
-  - Некоторые примеры модулей:
-    - Установка пакетов программ (sudo apt install),
-    - Обновить пакеты, акутуализировать пакетную базу репозиториев (sudo apt upgrade, sudo apt update),
-    - Создание и копирование файлов, запуск сервисов,
-    - Скачивание Docker Образа, Запуск/Остановка Docker контейнеров,
-    - Запуск/Остановка Nginx сервера, итд.     
-- Управляющий хост отправляет модули на клиентские хосты.
-
-- Перейдите к лабораторной работе:
-  - [LAB: Playing Docker Module](https://github.com/gulyaeve/ansible_labs/blob/main/Docker-Module.md)
-
-- Перейдите к лабораторной работе:
-  - [LAB: Important (Mostly Possible Used) Modules Sample Tasks](https://github.com/gulyaeve/ansible_labs/blob/main/Important-Modules-Sample-Tasks.md)
-  
-- Все модули в Ansible: 
-  - [Cloud Modules (AWS, Azure, Digital Ocean, Docker, Google Cloud, OpenStack, Vmware)](https://docs.ansible.com/ansible/2.9/modules/list_of_cloud_modules.html)
-  - [Clustering Modules (Kubernetes, ETCD)](https://docs.ansible.com/ansible/2.9/modules/list_of_clustering_modules.html)
-  - [Command Modules (Command, Expect, Shell, Script)](https://docs.ansible.com/ansible/2.9/modules/list_of_commands_modules.html)
-  - [Crypto Modules (OpenSSL, ACME)](https://docs.ansible.com/ansible/2.9/modules/list_of_crypto_modules.html)
-  - [Database Modules (MySql, PostgreSql, MongoDB, ElasticSearch, Redis, Kibana, InfluxDB)](https://docs.ansible.com/ansible/2.9/modules/list_of_database_modules.html)
-  - [Files Modules (Copy, LineIn, Find, File, Unarchive, Read_CSV)](https://docs.ansible.com/ansible/2.9/modules/list_of_files_modules.html)
-  - [Messaging Modules (RabbitMQ)](https://docs.ansible.com/ansible/2.9/modules/list_of_messaging_modules.html)
-  - [Monitoring Modules (Datadog, Grafana, Nagios, Zabbix)](https://docs.ansible.com/ansible/2.9/modules/list_of_monitoring_modules.html)
-  - [Network Modules](https://docs.ansible.com/ansible/2.9/modules/list_of_network_modules.html)
-  - [Notification Modules (MQTT, RabbitMq, Mattermost, Slack, Telegram)](https://docs.ansible.com/ansible/2.9/modules/list_of_notification_modules.html)
-  - [Packaging Modules (Apt, Dnf, Homebrew, Snap, Package)](https://docs.ansible.com/ansible/2.9/modules/list_of_packaging_modules.html)
-  - [Source Code Modules (Github, Gitlab, Bitbucket)](https://docs.ansible.com/ansible/2.9/modules/list_of_source_control_modules.html)
-  - [System Modules (Authorized Keys, Cron, IpTables, Make, Sysctl,)](https://docs.ansible.com/ansible/2.9/modules/list_of_system_modules.html)
-  - [Web Infrastructure Modules (Apache, Django, Jenkins, Jira, Ansible Tower)](https://docs.ansible.com/ansible/2.9/modules/list_of_web_infrastructure_modules.html)
-  - [Windows Modules (Command, Chocotaley, Environment, File, Find, Firewall, Ping, Powershell, Regedit, Service, Shell, User, SNMP)](https://docs.ansible.com/ansible/2.9/modules/list_of_windows_modules.html)
-  - [All Modules (Alphabet Order)](https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html)
-
 ## Плейбуки Ansible <a name="playbooks"></a>
 
-- Вместо использования Adhoc команд, используются файлы плейбуки для хранения и управления задачами (декларативный подход)
+- Вместо использования Adhoc команд, используются специальные файлы-плейбуки для хранения и управления задачами (декларативный подход)
   
   ![image](https://user-images.githubusercontent.com/10358317/203531052-f9fc2527-06cc-4503-b042-bca5997b5bd0.png) 
 
-- Playbooks are YAML files that include name, hosts (group name that is defined in inventoryfile), vars (variables that are used in playbooks) and tasks:
+- Плейбуки используют формат YAML и включают в себя название, хосты (группы из файла инвентаризации), vars (переменные, которые используются в плейбуке) и задачи:
 
 ```
 --- 
@@ -198,18 +163,54 @@ ansible all --list-hosts
       name: <your service name>
 ```  
 
-- Playbooks include hostname, user information, and tasks (with modules):
+- Плейбуки могут включать имена хостов, информацию о пользователе и задачах (вызываемые модули):
 
   ![image](https://user-images.githubusercontent.com/10358317/203531873-cf746f02-67cd-4d2d-98f8-fd7b4900b614.png) 
     
-- Go to LAB to learn how playbook is created:
+- Перейдите к лабораторной работе:
   - [LAB: Implement First Playbook](https://github.com/gulyaeve/ansible_labs/blob/main/Implement-First-Playbook.md)
 
-- [LAB: Refactoring / Improving Playbook](https://github.com/gulyaeve/ansible_labs/blob/main/Refactoring-Playbook.md)
+## Модули Ansible <a name="modules"></a>
 
-## Inventory File - Targeting Specific Nodes <a name="inventory"></a>
+- Модули: Небольшие программы для выполнения определенной задачи.
+  - Некоторые примеры модулей:
+    - Установка пакетов программ (sudo apt install),
+    - Обновить пакеты, акутуализировать пакетную базу репозиториев (sudo apt upgrade, sudo apt update),
+    - Создание и копирование файлов, запуск сервисов,
+    - Скачивание Docker Образа, Запуск/Остановка Docker контейнеров,
+    - Запуск/Остановка Nginx сервера, итд.     
+- Управляющий хост отправляет модули на клиентские хосты.
 
-- For grouping the nodes (defining with names), we are using inventory file (nano inventory): 
+- Перейдите к лабораторной работе:
+  - [LAB: Playing Docker Module](https://github.com/gulyaeve/ansible_labs/blob/main/Docker-Module.md)
+
+- Перейдите к лабораторной работе:
+  - [LAB: Important (Mostly Possible Used) Modules Sample Tasks](https://github.com/gulyaeve/ansible_labs/blob/main/Important-Modules-Sample-Tasks.md)
+
+- Перейдите к лабораторной работе:
+  - [LAB: Refactoring / Improving Playbook](https://github.com/gulyaeve/ansible_labs/blob/main/Refactoring-Playbook.md)
+  
+- Все модули в Ansible: 
+  - [Cloud Modules (AWS, Azure, Digital Ocean, Docker, Google Cloud, OpenStack, Vmware)](https://docs.ansible.com/ansible/2.9/modules/list_of_cloud_modules.html)
+  - [Clustering Modules (Kubernetes, ETCD)](https://docs.ansible.com/ansible/2.9/modules/list_of_clustering_modules.html)
+  - [Command Modules (Command, Expect, Shell, Script)](https://docs.ansible.com/ansible/2.9/modules/list_of_commands_modules.html)
+  - [Crypto Modules (OpenSSL, ACME)](https://docs.ansible.com/ansible/2.9/modules/list_of_crypto_modules.html)
+  - [Database Modules (MySql, PostgreSql, MongoDB, ElasticSearch, Redis, Kibana, InfluxDB)](https://docs.ansible.com/ansible/2.9/modules/list_of_database_modules.html)
+  - [Files Modules (Copy, LineIn, Find, File, Unarchive, Read_CSV)](https://docs.ansible.com/ansible/2.9/modules/list_of_files_modules.html)
+  - [Messaging Modules (RabbitMQ)](https://docs.ansible.com/ansible/2.9/modules/list_of_messaging_modules.html)
+  - [Monitoring Modules (Datadog, Grafana, Nagios, Zabbix)](https://docs.ansible.com/ansible/2.9/modules/list_of_monitoring_modules.html)
+  - [Network Modules](https://docs.ansible.com/ansible/2.9/modules/list_of_network_modules.html)
+  - [Notification Modules (MQTT, RabbitMq, Mattermost, Slack, Telegram)](https://docs.ansible.com/ansible/2.9/modules/list_of_notification_modules.html)
+  - [Packaging Modules (Apt, Dnf, Homebrew, Snap, Package)](https://docs.ansible.com/ansible/2.9/modules/list_of_packaging_modules.html)
+  - [Source Code Modules (Github, Gitlab, Bitbucket)](https://docs.ansible.com/ansible/2.9/modules/list_of_source_control_modules.html)
+  - [System Modules (Authorized Keys, Cron, IpTables, Make, Sysctl,)](https://docs.ansible.com/ansible/2.9/modules/list_of_system_modules.html)
+  - [Web Infrastructure Modules (Apache, Django, Jenkins, Jira, Ansible Tower)](https://docs.ansible.com/ansible/2.9/modules/list_of_web_infrastructure_modules.html)
+  - [Windows Modules (Command, Chocotaley, Environment, File, Find, Firewall, Ping, Powershell, Regedit, Service, Shell, User, SNMP)](https://docs.ansible.com/ansible/2.9/modules/list_of_windows_modules.html)
+  - [All Modules (Alphabet Order)](https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html)
+
+## Файл инвентаризации - указание определенных хостов <a name="inventory"></a>
+
+- Для группировки хостов (по имени группы), можно использовать файл инвентаризации (nano inventory): 
 ``` 
 [web_servers]
 172.21.67.249
@@ -217,7 +218,7 @@ ansible all --list-hosts
 [database_servers]
 172.21.75.98
 ``` 
-- Go to LAB to create and use inventory file with playbook:
+- Перейдите к лабораторной работе:
   - [LAB: Targeting Specific Nodes (Grouping)](https://github.com/gulyaeve/ansible_labs/blob/main/Targeting-Specific-Node.md)
 
 ## Tags <a name="tags"></a>

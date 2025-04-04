@@ -6,7 +6,7 @@
 
 ### Подготовка
 
-- Проверьте выполнена ли у вас предыдущая лабораторная работа, созданные ВМ используются в этой работе
+- Проверьте выполнены ли у вас данные лабораторные работы:
   - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
 
 ### Шаги
