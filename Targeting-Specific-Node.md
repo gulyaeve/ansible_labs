@@ -1,17 +1,17 @@
 ## LAB: Targeting Specific Nodes
 
-This scenario shows:
-- how to target specific nodes
+В этой лабораторной работе:
+- как указать определенные хосты в плейбуке 
 
-### Prerequisite
+### Подготовка
 
-- You should have a look following lab, nodes that are created in that LAB, are using in ansible commands
+- Проверьте выполнены ли у вас данные лабораторные работы:
   - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
 
-### Steps
+### Шаги
 
-- Update inventory file.
-- Make groups by giving names with '[]'.
+- Обновите файл инвентаризации.
+- Создайте группы, указав имена в '[]'.
 
 ``` 
 [web_servers]
@@ -24,9 +24,9 @@ This scenario shows:
 ![image](https://user-images.githubusercontent.com/10358317/201671961-6eb2815e-67e1-43d5-9e36-49bcebe0dad4.png)
 
 
-- Create 'site.yml' file
-- To prioritize the tasks, for updating, 'pre_tasks' is used
-- For different hosts, 3 different host groups are created: all, web_servers and database_servers
+- Создайте файл 'site.yml' 
+- Задачи можно упорядочить при помощи 'pre_tasks'
+- Для разных хостов, теперь используются 3 группы: all, web_servers и database_servers
 ```
 ---
 
@@ -83,7 +83,7 @@ This scenario shows:
     when: ansible_distribution == "Ubuntu"
 ```    
 
-- Run 
+- Запустите 
 
 ```
 ansible-playbook --ask-become-pass site.yml
@@ -91,7 +91,7 @@ ansible-playbook --ask-become-pass site.yml
 
 ![image](https://user-images.githubusercontent.com/10358317/201669957-5141bd02-b42a-4ceb-8750-d2aee3fb9716.png)
 
-- When we control whether mariadb is installed or not on database_servers (node2), it can be seen that it was installed on node2.
+- Проверьте что база данных mariadb установлена или нет на группе database_servers (node2).
 
 ```
 multipass shell node2

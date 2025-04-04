@@ -29,7 +29,7 @@
 - [Модули Ansible](#modules)
 - [Плейбуки Ansible](#playbooks)
 - [Файл инвентаризации - указание определенных хостов](#inventory)
-- [Tags](#tags)
+- [Теги](#tags)
 - [Managing Files](#files)
 - [Managing Services](#services)
 - [Adding Users](#users)
@@ -221,7 +221,7 @@ ansible all --list-hosts
 - Перейдите к лабораторной работе:
   - [LAB: Targeting Specific Nodes (Grouping)](https://github.com/gulyaeve/ansible_labs/blob/main/Targeting-Specific-Node.md)
 
-## Tags <a name="tags"></a>
+## Теги <a name="tags"></a>
 - With tags, some specific part of the code (playbook's play) could be run.
 
 ```
