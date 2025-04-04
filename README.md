@@ -26,7 +26,7 @@
 - [Как работает Ansible?](#how_ansible_works)
 - [Подготовка лабораторного стенда](#lab_environment)
 - [Базовые команды Ansible (Ad-Hoc Commands)](#commands)    
-- [Ansible Modules](#modules)
+- [Модули Ansible](#modules)
 - [Ansible Playbooks](#playbooks)
 - [Inventory File - Targeting Specific Nodes](#inventory)
 - [Tags](#tags)
@@ -137,24 +137,24 @@ ansible all --list-hosts
 - Перейдите к лабораторной работе:
   - [LAB: Install Ansible and Test Basic Ansible (Ad-Hoc) Commands](https://github.com/gulyaeve/ansible_labs/blob/main/Install-Ansible-Basic-Commands.md)
 
-## Ansible Modules <a name="modules"></a>
+## Модули Ansible <a name="modules"></a>
 
-- Modules: Small programs that do actual job (one small specific task).
-  - Sample modules (some of them):
-    - Install app packages (e.g. sudo apt install),
-    - Upgrade, update repository index (e.g. sudo apt upgrade, sudo apt update),
-    - Create and copy files, Start Services,
-    - Download Docker Image, Start/Stop Docker containers,
-    - Start/Stop Nginx Server, Create Cloud instance, etc.     
-- Control node sends these modules to the nodes.
+- Модули: Небольшие программы для выполнения определенной задачи.
+  - Некоторые примеры модулей:
+    - Установка пакетов программ (sudo apt install),
+    - Обновить пакеты, акутуализировать пакетную базу репозиториев (sudo apt upgrade, sudo apt update),
+    - Создание и копирование файлов, запуск сервисов,
+    - Скачивание Docker Образа, Запуск/Остановка Docker контейнеров,
+    - Запуск/Остановка Nginx сервера, итд.     
+- Управляющий хост отправляет модули на клиентские хосты.
 
-- Go to LAB to learn:
+- Перейдите к лабораторной работе:
   - [LAB: Playing Docker Module](https://github.com/gulyaeve/ansible_labs/blob/main/Docker-Module.md)
 
-- Go to LAB to learn:  
+- Перейдите к лабораторной работе:
   - [LAB: Important (Mostly Possible Used) Modules Sample Tasks](https://github.com/gulyaeve/ansible_labs/blob/main/Important-Modules-Sample-Tasks.md)
   
-- All Modules in Ansible: 
+- Все модули в Ansible: 
   - [Cloud Modules (AWS, Azure, Digital Ocean, Docker, Google Cloud, OpenStack, Vmware)](https://docs.ansible.com/ansible/2.9/modules/list_of_cloud_modules.html)
   - [Clustering Modules (Kubernetes, ETCD)](https://docs.ansible.com/ansible/2.9/modules/list_of_clustering_modules.html)
   - [Command Modules (Command, Expect, Shell, Script)](https://docs.ansible.com/ansible/2.9/modules/list_of_commands_modules.html)
