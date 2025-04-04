@@ -1,6 +1,6 @@
 ## LAB: Install Ansible and Test Basic Ansible (Ad-Hoc) Commands
 
-This scenario shows:
+В этой лабораторной работе:
 - how to install ansible
 - how to use basic commands
 

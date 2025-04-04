@@ -94,39 +94,39 @@
 
 ## Базовые команды Ansible (Ad-Hoc Commands) <a name="commands"></a>
 
-- Commands can be sent to the all worker nodes from control node.  
-- Code structure: 
+- Команды можно отправлять на все или на выбранные клиенты с управляющего хоста.  
+- Структура команды: 
   ![image](https://user-images.githubusercontent.com/10358317/203532819-acf44653-de14-426b-9656-35fa82bd4721.png) 
 
-- Sample Commands:
+- Примеры команд:
 ``` 
-# collect information from specific IP
+# сбор информации с определенного хоста по ip-адресу 
 ansible all -m gather_facts --limit 172.26.215.23
-# collect information from all hosts
+# сбор информации со всех хостов
 ansible all -m gather_facts
-# update all nodes (sudo apt-get update), 'become' for sudo (give all nodes same password with 'passwd')
+# обновить список пакетов на всех хостах (sudo apt-get update), 'become' используется для sudo (УЗ должна быть с одинаковым паролем на всех хостах)
 ansible all -m apt -a update_cache=true --become --ask-become-pass
-# install snapd for all ubuntu nodes (sudo apt-get install snapd)
+# установить snapd на всех ubuntu машинах (sudo apt-get install snapd)
 ansible all -m apt -a "name=snapd state=latest" --become --ask-become-pass
-# upgrade all nodes (sudo apt-get upgrade)
+# обновить все хосты (sudo apt-get upgrade)
 ansible all -m apt -a upgrade=dist --become --ask-become-pass
-# run shell commands
+# выполнить команду shell
 ansible all -m shell -a "cat /proc/meminfo|head -2" 
 ansible web_servers -m shell -a "cat /proc/meminfo|head -2" 
-# to learn disk space
+# проверить свободное место на дисках
 ansible all -m command -a "df -h"
 ansible all  -a "df -h"
-# check the status of the httpd service
+# проверить статус сервиса httpd
 ansible all -m service -a "name=httpd"
-# get the uptime with shell module
+# узнать время работы хоста (uptime) при помощи модуля shell
 ansible all -m shell -a uptime
-# create testfile under '/tmp' with mode=0755
+# создать файл в '/tmp' с правами доступа mode=0755
 ansible all -m file -a "path=/tmp/testfile state=touch mode=0755"
-# list all hosts
+# список всех хостов
 ansible all --list-hosts
 ``` 
 
-- If you define your inventory file (nano inventory) and group the servers with keywords, you can use 'web_servers' and 'database_servers' in the commands (above).
+- Если создать файл инвентаризации (nano inventory) и сгруппировать хосты по ключевым словам, то вы сможете использовать названия групп 'web_servers' и 'database_servers' в командах, представленных выше.
 ``` 
 [web_servers]
 172.21.67.249
@@ -134,7 +134,7 @@ ansible all --list-hosts
 [database_servers]
 172.21.75.98
 ``` 
-- Go to LAB to learn:
+- Перейдите к лабораторной работе:
   - [LAB: Install Ansible and Test Basic Ansible (Ad-Hoc) Commands](https://github.com/gulyaeve/ansible_labs/blob/main/Install-Ansible-Basic-Commands.md)
 
 ## Ansible Modules <a name="modules"></a>
