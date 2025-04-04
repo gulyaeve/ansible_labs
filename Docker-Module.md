@@ -1,19 +1,19 @@
 ## LAB: Playing Docker Module
 
-This scenario shows:
-- how to install docker
-- how to pull and list docker images
-- how to run, stop, remove docker containers.
+В этой лабораторной работе:
+- установка docker
+- скачивание и просмотр списка docker образов
+- запуск, установка, удаление docker контейнеров
 
-### Prerequisite
+### Подготовка
 
-- You should have a look following lab, nodes that are created in that LAB, are using in ansible commands
+- Проверьте выполнена ли у вас предыдущая лабораторная работа, созданные ВМ используются в этой работе
   - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
 
-### Steps
+### Шаги
 
-- Create docker_play.yml (nano docker_play.yml)
-- This file provides to install Docker, pull ubuntu image 
+- Создайте файл docker_play.yml (nano docker_play.yml)
+- Этот файл описывает установку Docker, скачивание образа ubuntu 
 
 ``` 
 ---
@@ -125,7 +125,7 @@ This scenario shows:
       with_sequence: count={{ container_count }}  
 ``` 
 
-- Run following command to run all, but we should use tags to run specific commands:
+- Запустите следующую команду на все хосты, для выбора задачи впоследствии мы будем использовать теги:
 
 ```
 ansible-playbook docker_play.yml
@@ -141,32 +141,32 @@ sudo docker container ls -a
 
 ![image](https://user-images.githubusercontent.com/10358317/203570423-d9721ceb-6869-439c-842d-66112fc931ec.png)
 
-- To install docker on nodes:
+- Для установки docker на хосты:
 ```
 ansible-playbook docker_play.yml --tags install
 ```
 
-- To run (sudo docker container ls -a):
+- Для вывода списка контейнеров (sudo docker container ls -a):
 ```
 ansible-playbook docker_play.yml --tags container_ls
 ```
 
 ![image](https://user-images.githubusercontent.com/10358317/203594440-46b99a95-f4b5-4f8b-9d10-93d5cd8eddd5.png)
 
-- To run (sudo docker images):
+- Для вывода списка образов (sudo docker images):
 ```
 ansible-playbook docker_play.yml --tags image_ls
 ```
 
 ![image](https://user-images.githubusercontent.com/10358317/203594583-4edac3c5-50b3-4ee3-8172-2e6413adf094.png)
 
-- To stop docker containers (in this case, containers are not up, their status is 'created'):
+- Для остановки всех docker контейнеров (в данном случае, контейнеры не запущены, их статус "создано" - 'created'):
 
 ```
 ansible-playbook docker_play.yml --tags stop
 ```
 
-- To remove docker containers: 
+- Чтобы удалить docker контейнеры: 
 
 ```
 ansible-playbook docker_play.yml --tags remove
@@ -175,9 +175,9 @@ ansible-playbook docker_play.yml --tags remove
 ![image](https://user-images.githubusercontent.com/10358317/203595029-7e9c6d1a-2b5f-4881-9d9e-9c60b68cb0e0.png)
 
 
-### Sample Docker Tasks:
+### Другие примеры задач с Docker:
 
-- Sample Docker Tasks are taken from here: 
+- Примеры Docker задач взяты отсюда: 
   - https://docs.ansible.com/ansible/2.9/modules/docker_container_module.html#docker-container-module
 
 ```
@@ -404,7 +404,7 @@ ansible-playbook docker_play.yml --tags remove
         rate: 300
 ```
 
-### All Docker Modules:
+### Все модули для Docker:
 
 - https://docs.ansible.com/ansible/2.9/modules/list_of_cloud_modules.html#docker
 

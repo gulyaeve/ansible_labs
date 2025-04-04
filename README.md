@@ -4,7 +4,7 @@
 **Keywords:** Ansible, Multi-PC Configuration.
 
 # Список лабораторных работ 
-- [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/Fast-Ansible/blob/main/Multipass-SSH-Configuration.md)
+- [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
 - [LAB: Install Ansible and Test Basic Ansible (Ad-Hoc) Commands](https://github.com/gulyaeve/ansible_labs/blob/main/Install-Ansible-Basic-Commands.md)
 - [LAB: Implement First Playbook](https://github.com/gulyaeve/ansible_labs/blob/main/Implement-First-Playbook.md)
 - [LAB: Playing Docker Module](https://github.com/gulyaeve/ansible_labs/blob/main/Docker-Module.md)
@@ -27,7 +27,7 @@
 - [Подготовка лабораторного стенда](#lab_environment)
 - [Базовые команды Ansible (Ad-Hoc Commands)](#commands)    
 - [Модули Ansible](#modules)
-- [Ansible Playbooks](#playbooks)
+- [Плейбуки Ansible](#playbooks)
 - [Inventory File - Targeting Specific Nodes](#inventory)
 - [Tags](#tags)
 - [Managing Files](#files)
@@ -172,9 +172,9 @@ ansible all --list-hosts
   - [Windows Modules (Command, Chocotaley, Environment, File, Find, Firewall, Ping, Powershell, Regedit, Service, Shell, User, SNMP)](https://docs.ansible.com/ansible/2.9/modules/list_of_windows_modules.html)
   - [All Modules (Alphabet Order)](https://docs.ansible.com/ansible/2.9/modules/list_of_all_modules.html)
 
-## Ansible Playbooks <a name="playbooks"></a>
+## Плейбуки Ansible <a name="playbooks"></a>
 
-- Instead of using Adhoc Commands, playbooks are used to store, manage easily (declerative way)
+- Вместо использования Adhoc команд, используются файлы плейбуки для хранения и управления задачами (декларативный подход)
   
   ![image](https://user-images.githubusercontent.com/10358317/203531052-f9fc2527-06cc-4503-b042-bca5997b5bd0.png) 
 

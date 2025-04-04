@@ -1,6 +1,6 @@
 ## LAB: Important (Mostly Possible Used) Modules Sample Tasks
 
-This scenario shows the important (Mostly Possible Used) modules sample tasks:
+В этой лабораторной работе показаны задач с модулями:
 - [File Module](#file)
 - [Lineinfile Module](#lineinfile)
 - [Unarchive Module](#unarchive)
@@ -8,14 +8,14 @@ This scenario shows the important (Mostly Possible Used) modules sample tasks:
 - [Shell Module](#shell)
 - [Windows PsExec Module](#psexec)
 
-### Prerequisite
+### Подготовка
 
-- You should have a look following lab, nodes that are created in that LAB, are using in ansible commands
+- Проверьте выполнена ли у вас предыдущая лабораторная работа, созданные ВМ используются в этой работе
   - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
 
 ### File Module <a name="file"></a>
 
-Details: https://docs.ansible.com/ansible/2.9/modules/list_of_files_modules.html
+Документация: https://docs.ansible.com/ansible/2.9/modules/list_of_files_modules.html
 
 ```
 - name: Change file ownership, group and permissions
@@ -109,7 +109,7 @@ Details: https://docs.ansible.com/ansible/2.9/modules/list_of_files_modules.html
 
 ### LineInFile Module <a name="lineinfile"></a>
 
-Details: https://docs.ansible.com/ansible/2.9/modules/lineinfile_module.html#lineinfile-module
+Документация: https://docs.ansible.com/ansible/2.9/modules/lineinfile_module.html#lineinfile-module
 
 ``` 
 # NOTE: Before 2.3, option 'dest', 'destfile' or 'name' was used instead of 'path'
@@ -174,7 +174,7 @@ Details: https://docs.ansible.com/ansible/2.9/modules/lineinfile_module.html#lin
 
 ### Unarchive Module <a name="unarchive"></a>
 
-Details: https://docs.ansible.com/ansible/2.9/modules/unarchive_module.html#unarchive-module
+Документация: https://docs.ansible.com/ansible/2.9/modules/unarchive_module.html#unarchive-module
 
 ```
 - name: Extract foo.tgz into /var/lib/foo
@@ -205,7 +205,7 @@ Details: https://docs.ansible.com/ansible/2.9/modules/unarchive_module.html#unar
     
 ### Command Module <a name="command"></a>
 
-Details: https://docs.ansible.com/ansible/2.9/modules/command_module.html#command-module
+Документация: https://docs.ansible.com/ansible/2.9/modules/command_module.html#command-module
 
 ```    
 - name: return motd to registered var
@@ -250,7 +250,7 @@ Details: https://docs.ansible.com/ansible/2.9/modules/command_module.html#comman
 
 ### Shell Module <a name="shell"></a>
 
-Details: https://docs.ansible.com/ansible/2.9/modules/shell_module.html#shell-module
+Документация: https://docs.ansible.com/ansible/2.9/modules/shell_module.html#shell-module
 
 ```
 - name: Execute the command in remote shell; stdout goes to the specified file on the remote.
@@ -311,7 +311,7 @@ Details: https://docs.ansible.com/ansible/2.9/modules/shell_module.html#shell-mo
 
 ### Windows PsExec Module <a name="psexec"></a>
 
-Details: https://docs.ansible.com/ansible/2.9/modules/psexec_module.html#psexec-module
+Документация: https://docs.ansible.com/ansible/2.9/modules/psexec_module.html#psexec-module
 
 ```
 - name: Run a cmd.exe command
