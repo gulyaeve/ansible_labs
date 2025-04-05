@@ -30,7 +30,7 @@
 - [Плейбуки Ansible](#playbooks)
 - [Файл инвентаризации - указание определенных хостов](#inventory)
 - [Теги](#tags)
-- [Managing Files](#files)
+- [Управление файлами](#files)
 - [Managing Services](#services)
 - [Adding Users](#users)
 - [Roles](#roles)
@@ -222,7 +222,7 @@ ansible all --list-hosts
   - [LAB: Targeting Specific Nodes (Grouping)](https://github.com/gulyaeve/ansible_labs/blob/main/Targeting-Specific-Node.md)
 
 ## Теги <a name="tags"></a>
-- With tags, some specific part of the code (playbook's play) could be run.
+- При помощи тегов можно запускать определенную часть плейбука.
 
 ```
 ansible-playbook --tags ubuntu --ask-become-pass site.yml
@@ -230,15 +230,15 @@ ansible-playbook --tags ubuntu --ask-become-pass site.yml
 
 ![image](https://user-images.githubusercontent.com/10358317/203546898-9dc1b0b5-929a-42ba-9cc4-7d919377aaba.png)
 
-- Go to LAB to learn how to use tags:
+- Перейдите к лабораторной работе:
   - [LAB: Adding Tags](https://github.com/gulyaeve/ansible_labs/blob/main/Tags.md)
 
-## Managing Files <a name="files"></a>
-- It is possible to transfer file from control node to all workers nodes, to download zip file from internet and to unzip files with playbooks.
+## Управление файлами <a name="files"></a>
+- Есть возможность передавать файлы с управляющего хоста на клиентские хосты, также можно скачать файл из интернет, например zip-архив, и распаковать его при помощи плейбука.
   
   ![image](https://user-images.githubusercontent.com/10358317/203547001-fb106bbe-1171-4ca0-9d8d-5343907c6cf9.png)
   
-- Go to LAB to learn how:
+- Перейдите к лабораторной работе:
   - [LAB: Managing Files](https://github.com/gulyaeve/ansible_labs/blob/main/Managing-Files.md)
 
 ## Managing Services <a name="services"></a>

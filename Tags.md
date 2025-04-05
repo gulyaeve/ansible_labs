@@ -2,17 +2,17 @@
 
 Tags are useful when we want to run specific part of the playbook. If we tagged with specific keywords, only tagged part would run.  
 
-This scenario shows:
-- how to add tags and run according to specific tags
+В этой лабораторной работе:
+- как добавить теги и запускать определенные задачи из плейбука 
 
-### Prerequisite
+### Подготовка
 
-- You should have a look following lab, nodes that are created in that LAB, are using in ansible commands
+- Проверьте выполнены ли у вас данные лабораторные работы:
   - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
 
-### Steps
+### Шаги
 
-- Tags are added with "tags" keyword. "tags: Always" run always, other tags could be custom defined (e.g. apache, mariadb, etc.)
+- Теги можно добавить при помощи ключевого слова "tags". Тег "Always" запускается всегда, другие теги необходимо задать по имени (apache, mariadb, итд.)
 
 ``` 
 ---
@@ -76,7 +76,7 @@ This scenario shows:
     when: ansible_distribution == "Ubuntu"
 ``` 
 
-- To see the defined tags, run following:
+- Чтобы увидеть все теги в плейбуке, запустите:
 
 ```
 ansible-playbook --list-tags site.yml
@@ -84,27 +84,27 @@ ansible-playbook --list-tags site.yml
 
 ![image](https://user-images.githubusercontent.com/10358317/201675534-6773039e-b45e-4f1f-b473-3a1ab1059f69.png)
 
-- When we want to run only tasks which contains 'Ubuntu' tag, run following:
+- Когда необходимо запустить только задачи, содержащие тег 'Ubuntu', запустите:
 
 ```
 ansible-playbook --tags ubuntu --ask-become-pass site.yml
 ```
 
-- It can be seen below, only 'ubuntu' tagged tasks and 'always' tagged tasks were run. "Gathering Facts" always run to collect server data.
+- Как можно увидеть ниже, были выполнены задачи с тегами 'ubuntu' и 'always'. "Gathering Facts" - Сбор данных запускается всегда для сбора данных с хоста.
 
 ![image](https://user-images.githubusercontent.com/10358317/201676220-0cb5dfc4-3a29-4de0-b9eb-96a3fcc275dd.png)
 
-- When we want to run only tasks which contains 'db' tag, run following:
+- Когда необходимо запустить только задачи, содержащие тег 'db', запустите:
 
 ```
 ansible-playbook --tags db --ask-become-pass site.yml
 ```
 
-- It can be seen below, only 'db' tagged tasks and 'always' tagged tasks were run.
+- Как можно увидеть ниже, были выполнены задачи с тегами 'db' и 'always'.
 
 ![image](https://user-images.githubusercontent.com/10358317/201676636-7043e4e5-2277-4273-8274-e934e5ad1bb8.png)
 
-- When we want to run only tasks which contains 'always' tag, run following:
+- Когда необходимо запустить только задачи, с тегом 'always', запустите:
 
 ```
 ansible-playbook --tags always --ask-become-pass site.yml
