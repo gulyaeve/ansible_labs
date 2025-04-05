@@ -31,8 +31,8 @@
 - [Файл инвентаризации - указание определенных хостов](#inventory)
 - [Теги](#tags)
 - [Управление файлами](#files)
-- [Managing Services](#services)
-- [Adding Users](#users)
+- [Управление сервисами](#services)
+- [Добавление пользователей](#users)
 - [Roles](#roles)
 - [Host Variables](#host_variables)
 - [Handlers](#handlers)
@@ -241,8 +241,8 @@ ansible-playbook --tags ubuntu --ask-become-pass site.yml
 - Перейдите к лабораторной работе:
   - [LAB: Managing Files](https://github.com/gulyaeve/ansible_labs/blob/main/Managing-Files.md)
 
-## Managing Services <a name="services"></a>
-- It is possible to manage services (create, start, stop, restart, configure service file)
+## Управление сервисами <a name="services"></a>
+- Есть возможность управлять состоянием сервисов (служб или демонов): create, start, stop, restart, изменение service file
 
 ```
 - name: start apache (Ubuntu)
@@ -254,11 +254,11 @@ ansible-playbook --tags ubuntu --ask-become-pass site.yml
   when: ansible_distribution == "Ubuntu"
 ```
 
-- Go to LAB to learn how:
+- Перейдите к лабораторной работе:
   - [LAB: Managing Services](https://github.com/gulyaeve/ansible_labs/blob/main/Managing-Services.md)
 
-## Adding Users <a name="users"></a>
-- It is possible to manage users (add users, create SSH keys for users, add user as sudoers)
+## Добавление пользователей <a name="users"></a>
+- Есть возможность управлять пользователями (добавление, создание SSH-ключей, редактирование sudoers)
 
 ```
 - name: create new user
@@ -267,7 +267,7 @@ ansible-playbook --tags ubuntu --ask-become-pass site.yml
     groups: root
 ```
 
-- Go to LAB to learn how:
+- Перейдите к лабораторной работе:
   - [LAB: Adding Users](https://github.com/gulyaeve/ansible_labs/blob/main/Adding-User.md)
 
 ## Roles <a name="roles"></a>

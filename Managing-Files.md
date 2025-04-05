@@ -1,20 +1,21 @@
 ## LAB: Managing Files
 
-This scenario shows:
-- how to transfer file from control node to worker nodes.
-- how to download file from internet and unzip that file.
+В этой лабораторной работе:
+- передача файла с управляющего хоста на удаленные.
+- скачивание и распаковка архива.
 
-### Prerequisite
+### Подготовка
 
-- You should have a look following lab, nodes that are created in that LAB, are using in ansible commands
+- Проверьте выполнены ли у вас данные лабораторные работы:
   - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
+  - [LAB: Adding Tags](https://github.com/gulyaeve/ansible_labs/blob/main/Tags.md)
 
-### Steps
+### Шаги
 
-#### Transfer File from Control Node to Worker Nodes
+#### Передача файлов с управляющего хоста на клиенты
 
-- Create html file in the control node.
-- Create directory and web page.
+- В своей директории ansible на управляющем хосте создайте файл html.
+- Создайте директорию и веб-страницу.
 
 ``` 
 mkdir files
@@ -31,7 +32,7 @@ nano files/default_site.html
 </html>
 ``` 
 
-- Update 'site.yml' file (implemented in [LAB: Adding Tags](https://github.com/gulyaeve/ansible_labs/blob/main/Tags.md))
+- Измените файл 'site.yml' (сделанный в работе: [LAB: Adding Tags](https://github.com/gulyaeve/ansible_labs/blob/main/Tags.md))
 
 ``` 
 ---
@@ -106,7 +107,7 @@ nano files/default_site.html
 
 ![image](https://user-images.githubusercontent.com/10358317/201684361-7894105d-09b2-46ac-920b-b8702ce8f234.png)
 
-- Run following: 
+- Запустите: 
 
 ```
 ansible-playbook --ask-become-pass site.yml
@@ -114,15 +115,15 @@ ansible-playbook --ask-become-pass site.yml
 
 ![image](https://user-images.githubusercontent.com/10358317/201685754-26180f5c-04ee-4d8b-a0ee-38edde586312.png)
 
-- File is transferred to node1: 
+- Файл передан на node1: 
 
 ![image](https://user-images.githubusercontent.com/10358317/201686161-0ace79c4-0b99-40d2-8494-e5c7fb061df6.png)
 
 ![image](https://user-images.githubusercontent.com/10358317/201686403-b4909095-c1ae-4a52-90cf-9a6e2fdf09ab.png)
 
-#### Download File from Internet and Unzip the File
+#### Скачивание и распаковка архива из интернета
 
-- Update 'site.yml' file with adding unzip package (name: install unzip) and unarchive file (name: install terraform).
+- Измените файл 'site.yml' добавив установку пакета unzip (install unzip) и распаковку (unarchive) файла (install terraform).
 
 ``` 
 ---
@@ -210,7 +211,7 @@ ansible-playbook --ask-become-pass site.yml
 
 ![image](https://user-images.githubusercontent.com/10358317/201689373-a244449e-ca81-48d9-9947-dffaf6802e81.png)
 
-- It installs the zip file from remote and unzips this terraform application into '/usr/local/bin'
+- Это действие распакует содержимое архива с terraform на удаленном хосте в '/usr/local/bin'
 
 ```
 ansible-playbook --ask-become-pass site.yml
@@ -218,7 +219,7 @@ ansible-playbook --ask-become-pass site.yml
 
 ![image](https://user-images.githubusercontent.com/10358317/201689863-cffbe7ac-2501-454d-9509-011886629d51.png)
 
-- Installed on node1
+- Установлено на node1
 
 ![image](https://user-images.githubusercontent.com/10358317/201690101-8620f86c-d27a-4f51-8f40-1be649efcf54.png)
 

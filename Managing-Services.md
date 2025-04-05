@@ -1,18 +1,18 @@
 ## LAB: Managing Services
 
-This scenario shows:
-- how to manage services
+В этой лабораторной работе:
+- управление службами (сервисами) 
 
-### Prerequisite
+### Подготовка
 
-- You should have a look following lab, nodes that are created in that LAB, are using in ansible commands
+- Проверьте выполнены ли у вас данные лабораторные работы:
   - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
 
-### Steps
+### Шаги
 
-#### Service Start
+#### Запуск службы
 
-- Update site.yml file, Add followings:
+- Измените файл site.yml, добавив:
 ```
   - name: start apache (Ubuntu)
     tags: ubuntu,apache,apache2
@@ -22,7 +22,7 @@ This scenario shows:
       enabled: yes
     when: ansible_distribution == "Ubuntu"
 ```
-- Updated site.yml 
+- Измените site.yml 
 
 ``` 
 ---
@@ -115,7 +115,7 @@ This scenario shows:
       state: latest
     when: ansible_distribution == "Ubuntu"
 ``` 
-- Stop apache2 service and see the service is stopped.
+- Остановите службу apache2 и проверьте статус.
 
 ``` 
 systemctl stop apache2
@@ -124,19 +124,19 @@ systemctl status apache2
 
 ![image](https://user-images.githubusercontent.com/10358317/201748361-1423d4e9-f880-44f6-9f3c-c7c3c0afe712.png)
 
-- Run 
+- Запустите 
 
 ``` 
 ansible-playbook --ask-become-pass site.yml
 ``` 
 
-- It is seen that apache2 service is started:
+- Убедитесь что служба apache2 запущена: 
 
 ![image](https://user-images.githubusercontent.com/10358317/201749062-dcf7cd41-4133-4cc9-8f6b-a3e0b35a4cda.png)
 
 #### Change Service Config File
 
-- Go to node1 and run:
+- Перейдите на node1 и запустите:
 
 ```
 sudo nano /etc/apache2/sites-available/000-default.conf
@@ -144,7 +144,7 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 
 ![image](https://user-images.githubusercontent.com/10358317/201751273-ed32c787-f360-48a2-aa66-2fedfd4e9391.png)
 
-- Add following tasks into the webserver side of site.yml.
+- Добавьте следующую задачу на веб-сервере в файл site.yml.
 
 ```
   - name: change email address for admin (Ubuntu)
@@ -164,15 +164,15 @@ sudo nano /etc/apache2/sites-available/000-default.conf
     when: apache2_service.changed
 ```
 
-- As can seen printscreen, when the keyword is written in the register part (apache2_service), is changed, restart service is restarted. The task depends on the registered variable status. 
+- Как видно на скриншоте, когда ключевое слово записывается в регистр (apache2_service), происходит его изменение, в этом случае запускается задача на перезапуск службы. Задача становится зависимой от переменной регистра.
 
 ![image](https://user-images.githubusercontent.com/10358317/201753745-29e9e879-770a-46e5-a315-1da40f0cd1fa.png)
 
-- **IMPORTANT:** If the register variable is defined consecutively, if second task does not run with same register variable (because first same task handled it), because second one does not change, so restart task does not run.   
+- **ВАЖНО:** Если переменная в регистре определена последовательно, то если во второй задаче она не изменит значение (потому что первая изменила), то задача на перезапуск выполнена не будет.   
 
 ![image](https://user-images.githubusercontent.com/10358317/201755326-44284c95-db0d-46c3-8f22-f224d845bd5b.png)
 
-- Updated site.yml:
+- Измените site.yml:
 
 ``` 
 ---
@@ -282,7 +282,7 @@ sudo nano /etc/apache2/sites-available/000-default.conf
     when: ansible_distribution == "Ubuntu"
 ``` 
 
-- It can be seen that it is changed:
+- Как видите файл изменился:
 
 ![image](https://user-images.githubusercontent.com/10358317/201753411-ed5e38cd-1877-4261-b63f-72e413cd4a7c.png)
 
