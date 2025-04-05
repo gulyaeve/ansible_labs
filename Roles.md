@@ -1,16 +1,16 @@
 ## LAB: Roles
 
-This scenario shows:
+В этой лабораторной работе:
 - how to create roles 
 
-### Prerequisite
+### Подготовка
 
-- You should have a look following lab, nodes that are created in that LAB, are using in ansible commands
+- Проверьте выполнены ли у вас данные лабораторные работы:
   - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
 
-### Steps
+### Шаги
 
-- Update site.yml with 'roles'.
+- Обновите файл site.yml с применением ролей.
 
 ```
 ---
@@ -51,11 +51,11 @@ This scenario shows:
 
 ![image](https://user-images.githubusercontent.com/10358317/202458768-ffbc6907-4659-4a43-8629-454f0b4a9a7f.png)
 
-- Create directories.
+- Создайте директории.
 
 ```
-mkdir role
-cd role
+mkdir roles
+cd roles
 mkdir base
 mkdir web_servers
 mkdir database_servers
@@ -63,10 +63,10 @@ mkdir database_servers
 
 ![image](https://user-images.githubusercontent.com/10358317/202450210-f6f6f3c4-7a50-4680-bce9-13cad264655d.png)
 
-- Create subdirectories
+- Создайте подкаталоги
 
 ```
-cd role
+cd roles
 mkdir base/tasks
 mkdir web_servers/tasks
 mkdir database_servers/tasks
@@ -74,7 +74,7 @@ mkdir database_servers/tasks
 
 ![image](https://user-images.githubusercontent.com/10358317/202452013-eaa1b281-cc1f-4259-b29d-73bf98ba4dad.png)
 
-- Create file 'main.yml' under 'role/base/tasks' with 'nano main.yml' and copy followings (taken from previous 'site.yml'):
+- Создайте файл 'main.yml' в 'roles/base/tasks' командой 'nano main.yml' и копируйте следующее (взято из предыдущего 'site.yml'):
 
 ```
 - name: add ssh key for new user
@@ -83,7 +83,7 @@ mkdir database_servers/tasks
     key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCdEJ8xu1C0kJ4Y39x2bfptMQVdxnPDXrkjmDvB44oDV78yKWg/0B/kacMqiEaaiEyAedHlk>
 ```
 
-- Create file 'main.yml' under 'role/database_servers/tasks' with 'nano main.yml' and copy followings (taken from previous 'site.yml'):
+- Создайте файл 'main.yml' в 'roles/database_servers/tasks' командой 'nano main.yml' и копируте следующее (взято из предыдущего 'site.yml'):
 
 ```
 - name: install MariaDB (CentOS)
@@ -101,7 +101,7 @@ mkdir database_servers/tasks
   when: ansible_distribution == "Ubuntu"
 ```
 
-- Create file 'main.yml' under 'role/web_servers/tasks' with 'nano main.yml' and copy followings (taken from previous 'site.yml'):
+- Создайте файл 'main.yml' в 'roles/web_servers/tasks' командой 'nano main.yml' и копируте следующее (взято из предыдущего 'site.yml'):
 
 ```
 - name: install apache and php (CentOS)
@@ -169,7 +169,7 @@ mkdir database_servers/tasks
     mode: 0755  
 ```
 
-- Create directory 'roles/web_servers/files' and files in the 'files' directory
+- Создайте директорию 'roles/web_servers/files' и копируйте фaйлы из files в данную 'files'
 
 ```
 mkdir files
@@ -178,11 +178,11 @@ cp ../../files/default_site.html files/default_site.html
 
 ![image](https://user-images.githubusercontent.com/10358317/202455685-4becaa8e-6164-42bb-80f7-18471b21478d.png)
 
-- Printscreen shows the structure of the directories. Structure should be like that, because Ansible finds the tasks with that way (e.g. roles/[nameofrole]/tasks/main.yml)
+- На скриншоте показана структура каталогов. Структура должна быть как тут, потому что Ansible ищет задачи по таким путям (roles/[nameofrole]/tasks/main.yml)
 
 ![image](https://user-images.githubusercontent.com/10358317/202458020-39562296-fb49-4fec-94cc-e071e29a2c9a.png)
 
-- Run ansible-playbook
+- Запустите плейбук
 
 ```
 ansible-playbook site.yml

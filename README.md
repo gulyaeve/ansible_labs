@@ -33,7 +33,7 @@
 - [Управление файлами](#files)
 - [Управление сервисами](#services)
 - [Добавление пользователей](#users)
-- [Roles](#roles)
+- [Роли](#roles)
 - [Host Variables](#host_variables)
 - [Handlers](#handlers)
 - [Templates](#templates)
@@ -270,13 +270,18 @@ ansible-playbook --tags ubuntu --ask-become-pass site.yml
 - Перейдите к лабораторной работе:
   - [LAB: Adding Users](https://github.com/gulyaeve/ansible_labs/blob/main/Adding-User.md)
 
-## Roles <a name="roles"></a>
-- Roles are defined to simplify, control your Ansible code like sofware code. 
-- Roles are assigned to the group of nodes and roles help to define the task of these nodes. 
+## Роли <a name="roles"></a>
+- Роли созданы для упрощения контроля над Ansible кодом, так как будто это код программного обеспечения. 
+- Роли могут буть назначены группам хостов и роли помогают определить задачи для этих хостов. 
 
   ![image](https://user-images.githubusercontent.com/10358317/203546694-cb961a0b-e1e3-4e06-9f2d-0e70f1ef6cc8.png)
 
-- Go to LAB to learn how:
+Для создания новой роли можно набрать команду для инициализации структуры каталогов и файлов:
+```
+ansible-galaxy role init "role_name"
+```
+
+- Перейдите к лабораторной работе:
   - [LAB: Roles](https://github.com/gulyaeve/ansible_labs/blob/main/Roles.md)
 
 ## Host Variables <a name="host_variables"></a>

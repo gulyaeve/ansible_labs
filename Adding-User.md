@@ -3,14 +3,14 @@
 В этой лабораторной работе:
 - добавление пользователя.
 
-### Prerequisite
+### Подготовка
 
-- You should have a look following lab, nodes that are created in that LAB, are using in ansible commands
+- Проверьте выполнены ли у вас данные лабораторные работы:
   - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
 
-### Steps
+### Шаги
 
-- Update site.yml file, Add followings to add 'newuser111':
+- Обновите файл site.yml, сделаем добавление пользователя 'newuser111':
 
 ```
  - name: create new user
@@ -20,7 +20,7 @@
       groups: root
 ```
 
-- Updated site.yml
+- Обновите site.yml
 
 ```
 ---
@@ -136,7 +136,7 @@
     when: ansible_distribution == "Ubuntu"
 ```
 
-- Run the playbook:
+- Запустите плейбук:
 
 ```
 ansible-playbook --ask-become-pass site.yml
@@ -144,7 +144,7 @@ ansible-playbook --ask-become-pass site.yml
 
 ![image](https://user-images.githubusercontent.com/10358317/201946359-c22d6265-12ef-4bbd-8e19-956bff8a70a9.png)
 
-- Run on other nodes to check:
+- Проверьте на хостах:
 
 ```
 cat /etc/passwd
@@ -152,7 +152,7 @@ cat /etc/passwd
 
 ![image](https://user-images.githubusercontent.com/10358317/201946789-0a860635-910f-4239-8131-da7cea7af6b1.png)
 
-- Add SSH Key and sudoer file into 'site.yml':
+- Добавьте SSH-ключ и создайте файл для sudo в плейбуке 'site.yml':
 
 ```
   - name: add ssh key for new user
@@ -171,7 +171,7 @@ cat /etc/passwd
       mode: 0440
 ```
 
-- Create sudoer_newuser111 file in files:
+- Создайте файл sudoer_newuser111 в директории files:
 
 ```
 nano files/sudoer_newuser111
@@ -187,7 +187,7 @@ ansible-playbook --ask-become-pass site.yml
 
 ![image](https://user-images.githubusercontent.com/10358317/201950757-5d496494-8d74-4513-80b4-2fa0f5a546ff.png)
 
-- We can see that newuser111 file is transferred to node1
+- Проверьте что файл newuser111 доставлен на хост node1
 
 ```
 sudo ls -l /etc/sudoers.d
@@ -200,7 +200,7 @@ sudo ls -l /etc/sudoers.d
 ![image](https://user-images.githubusercontent.com/10358317/201952021-c57d91fd-dddc-4c14-bf7b-2e8557bd9125.png)
 
 
-- Update the 'ansible.cfg' file
+- Обновите файл 'ansible.cfg'
 
 ```
 [defaults]
@@ -208,7 +208,7 @@ inventory = inventory
 # private_key_file = ~/.ssh/ansible
 remote_user = newuser111
 ```
-- When we run ansible-playbook without become password (sudo), it works:
+- Когда теперь мы запускаем плейбук без become (sudo), это должно работать:
 
 ```
 ansible-playbook site.yml
@@ -216,4 +216,4 @@ ansible-playbook site.yml
 
 ![image](https://user-images.githubusercontent.com/10358317/201961697-79fee25d-f1f0-4894-81ce-8dfe30c6ff67.png)
 
-- Finally we created new user, added this user as sudoers and we can now use ansible-playbook without using become password
+- В итоге мы создали пользователя, добавили этого пользователя к sudoers и можем использовать плейбук без become password
