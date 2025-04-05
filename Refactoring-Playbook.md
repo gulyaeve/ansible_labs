@@ -1,7 +1,7 @@
 ## LAB: Refactoring / Improving Playbook
 
 В этой лабораторной работе:
-- как рефакторить и улучшать плейбуки 
+- как рефакторить и улучшать плейбуки
 
 ### Подготовка
 
@@ -13,7 +13,7 @@
 
 - У нас есть плейбук, созданный в этой лабораторной работе: https://github.com/gulyaeve/ansible_labs/blob/main/Implement-First-Playbook.md
 
-``` 
+```
 ---
 
 - hosts: all
@@ -53,12 +53,12 @@
       name: php
       state: latest
     when: ansible_distribution == "CentOS"
-``` 
+```
 
-#### Consolidate same modules tasks into one task
+#### Консолидация задач у похожих модулей в одну задачу
 
-- Consolidate 'apt' and 'dnf' modules into one group both for Ubuntu and CentOS. 
-- For both of them, they install two packages and update repository index.
+- Консолидируем модули 'apt' и 'dnf' в одну группу, общую для Ubuntu и CentOS.
+- Для обеих систем будем делать установку пакетов и обновление списка пакетов.
 ```
 ---
 
@@ -85,11 +85,11 @@
     when: ansible_distribution == "CentOS"
 ```
 
-#### Consolidate into one task with Variables
+#### Консолидация в одну задачу при помощи переменных
 
-- Update install_apache.yml file and add variables: apache_package, php_package
-- Change 'apt' and 'dnf' to 'package'
- 
+- Обновите файл install_apache.yml и добавьте переменные: apache_package, php_package
+- Измените 'apt' и 'dnf' на 'package'
+
 ```
 ---
 
@@ -106,7 +106,7 @@
       update_cache: yes
 ```
 
-- Update inventory and add variables
+- Обновите inventory, добавив туда переменные
 
 ```
 172.21.79.85  apache_package=apache2 php_package=libapache2-mod-php
@@ -114,11 +114,10 @@
 172.21.76.102 apache_package=httpd php_package=php
 ```
 
-- Run: 
+- Запустите:
 
 ```
 ansible-playbook --ask-become-pass install_apache.yml
 ```
 
 ![image](https://user-images.githubusercontent.com/10358317/201663202-00e9288e-9c9f-4c2b-95f8-d7146a590da7.png)
-
