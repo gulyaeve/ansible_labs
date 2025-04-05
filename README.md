@@ -34,7 +34,7 @@
 - [Управление сервисами](#services)
 - [Добавление пользователей](#users)
 - [Роли](#roles)
-- [Host Variables](#host_variables)
+- [Переменные хостов](#host_variables)
 - [Handlers](#handlers)
 - [Templates](#templates)
 - [Debugging](#debugging)
@@ -284,14 +284,14 @@ ansible-galaxy role init "role_name"
 - Перейдите к лабораторной работе:
   - [LAB: Roles](https://github.com/gulyaeve/ansible_labs/blob/main/Roles.md)
 
-## Host Variables <a name="host_variables"></a>
-- It helps to define variables which are dependent to the hosts. 
+## Переменные хостов <a name="host_variables"></a>
+- Есть возможность определить переменные для каждого из хостов. 
 
   ![image](https://user-images.githubusercontent.com/10358317/203547741-9a52592b-7385-4e77-89ad-d8128ecf16b7.png)
   
   ![image](https://user-images.githubusercontent.com/10358317/203547770-7eef113c-c9ce-4043-9b02-588ba86fd747.png)
 
-- Go to LAB to learn how:
+- Перейдите к лабораторной работе:
   - [LAB: Host Variables](https://github.com/gulyaeve/ansible_labs/blob/main/Host-Variables.md)
 
 ## Handlers <a name="handlers"></a>
