@@ -37,10 +37,10 @@
 - [Переменные хостов](#host_variables)
 - [Хэндлеры](#handlers)
 - [Шаблоны](#templates)
-- [Debugging](#debugging)
-- [Details](#details)
-- [Other Useful Resources Related Ansible](#resource)
-- [References](#references)
+- [Дебаггинг](#debugging)
+- [Дополнительные возможности](#details)
+- [Другие полезные ресурсы по Ansible](#resource)
+- [Ссылки](#references)
 
 ## Введение <a name="motivation"></a>
 
@@ -322,9 +322,9 @@ ansible-playbook findtest.yaml -e "DIR=/apps/Tomcat FILEEXT=*.log DAYSOLD=30"
 - Перейдите к лабораторной работе:
   - [LAB: Templates](https://github.com/gulyaeve/ansible_labs/blob/main/Templates.md)
 
-## Debugging <a name="debugging"></a>
+## Дебаггинг <a name="debugging"></a>
 
-- For verbosity, use -v, -vv (increase level), -vvv.
+- Для более подробного вывода используте опцию verbosity, можно менять уровень при помощи -v, -vv, -vvv.
 
 ```
 ansible all -m shell -a uptime -v
@@ -332,30 +332,30 @@ ansible all -m shell -a uptime -vv
 ansible all -m shell -a uptime -vvv
 ```
 
-## Details <a name="details"></a>
+## Дополнительные возможности <a name="details"></a>
 
 ```
-ansible-playbook <YAML> -f 10                       # Run 10 hosts parallel, default f=5 hosts parallel
-ansible-playbook <YAML> -C                          # Test run
-ansible-playbook <YAML> -C -D                       # Dry run
-ansible-playbook <YAML> --user <username>           # Log in as username (or -u <username>)
-ansible-playbook <YAML> --private-key <key>         # Log in using SSH key (usually in ~/.ssh) (or --key-file <key>)
-ansible-playbook <YAML> --ssh-extra-args            # Pass extra command options to SSH
-ansible-playbook <YAML> --vault-id <id>             # Use vault identity ID
-ansible-playbook <YAML> --vault-password-file <key> # Use vault password file key
-ansible-playbook <YAML> --ask-vault-pass            # Prompt for a vault password
-ansible-playbook <YAML> --become                    # Escalate privileges
-ansible-playbook <YAML> --ask-become-pass           # Prompt for a password for become
-ansible-playbook <YAML> -l <host>                   # Run on single host
-ansible-playbook <YAML> --list-hosts                # Run Infos
-ansible-playbook <YAML> --list-tasks                # Run Infos
-ansible-playbook <YAML> --syntax-check              # Syntax Check
-ansible-playbook <YAML> --check                     # Run the playbook but don’t make changes
-ansible-playbook <YAML> --diff                      # Show diffs for what changes are made
+ansible-playbook <YAML> -f 10                       # Запустить параллельно на 10 хостах, по умолчанию f=5
+ansible-playbook <YAML> -C                          # Тестовый запуск
+ansible-playbook <YAML> -C -D                       # Dry run - запуск без изменений
+ansible-playbook <YAML> --user <username>           # Использовать другое имя пользователя (или -u <username>)
+ansible-playbook <YAML> --private-key <key>         # Указать SSH-ключ (обычно берётся из ~/.ssh) (или --key-file <key>)
+ansible-playbook <YAML> --ssh-extra-args            # Передать дополнительные опции в SSH
+ansible-playbook <YAML> --vault-id <id>             # Использовать хранилище с идентификатором ID
+ansible-playbook <YAML> --vault-password-file <key> # Использовать хранилище паролей из файла
+ansible-playbook <YAML> --ask-vault-pass            # Запросить ввод пароля от хранилища
+ansible-playbook <YAML> --become                    # Повысить привелегии
+ansible-playbook <YAML> --ask-become-pass           # Запросить ввод пароля для повышения привелегий
+ansible-playbook <YAML> -l <host>                   # Запустить на одном хосте
+ansible-playbook <YAML> --list-hosts                # Получить список хостов
+ansible-playbook <YAML> --list-tasks                # Получить список задач
+ansible-playbook <YAML> --syntax-check              # Проверка синтаксиса
+ansible-playbook <YAML> --check                     # Проверка плейбука (запуск без изменений)
+ansible-playbook <YAML> --diff                      # Показать изменения
 
 ```
 
-### Capture Shell Output
+### Захват вывода shell-команды
 ```
   tasks:
   - name: some shell
@@ -372,15 +372,15 @@ ansible-playbook <YAML> --diff                      # Show diffs for what change
     debug:
       msg: "{{ sh_out.stderr.split('\n') }}"
 ```
-- Debug output section in the playbook:
+- Использование секции Debug в плейбуке для вывода:
 
   ![image](https://user-images.githubusercontent.com/10358317/215115854-588292ce-1707-420a-bf2c-e77c40e5bb09.png)
 
-- Output: 
+- Выаод: 
 
   ![image](https://user-images.githubusercontent.com/10358317/215116236-af140eb4-ec7e-4584-a8cc-65cbe0575a66.png)
 
-### Deleting files & directories
+### Удаление файлов и директорий
 ```
 tasks:
 - name: rm
@@ -389,14 +389,14 @@ tasks:
     state: absent
     recurse: yes        # optional
 ```
-## Other Useful Resources Related Ansible <a name="resource"></a>
+## Другие полезные ресурсы по Ansible <a name="resource"></a>
 - https://docs.ansible.com/ansible/2.9/
 - Video Tutorial: https://www.youtube.com/watch?v=3RiVKs8GHYQ&list=PLT98CRl2KxKEUHie1m24-wkyHpEsa4Y70
 - https://www.tutorialspoint.com/ansible/
 - https://www.digitalocean.com/community/cheatsheets/how-to-use-ansible-cheat-sheet-guide
 - https://www.middlewareinventory.com/blog/category/ansible/
 
-## References <a name="references"></a>
+## Ссылки <a name="references"></a>
 - OpenSource: https://opensource.com/resources/what-ansible
 - Video Tutorial: https://www.youtube.com/watch?v=3RiVKs8GHYQ&list=PLT98CRl2KxKEUHie1m24-wkyHpEsa4Y70
 - https://www.kreyman.de/index.php/others/linux-kubernetes/213-ansible-verwendungsszenarien
