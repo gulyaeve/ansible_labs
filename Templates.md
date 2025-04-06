@@ -1,17 +1,17 @@
 ## LAB: Templates
 
-This scenario shows:
-- how to create templates.
+В этой лабораторной работе:
+- создание шаблонов.
 
-### Prerequisite
+### Подготовка
 
-- You should have a look following lab, nodes that are created in that LAB, are using in ansible commands
+- Проверьте выполнены ли у вас данные лабораторные работы:
   - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
 
-### Steps
+### Шаги
 
-- Create 'templates' directory under the '/roles/base/'
-- Copy 'sshd_config' file under 'templates' and create jinja2 file (.j2)
+- Создайте каталог 'templates' в '/roles/base/'
+- Копируте файл 'sshd_config' в 'templates' с добавлением суффикса файла jinja2 (.j2)
 
 ```
 mkdir templates
@@ -22,7 +22,7 @@ cp /etc/ssh/sshd_config sshd_config_ubuntu.j2
 ![image](https://user-images.githubusercontent.com/10358317/202679439-45eceefc-0b29-418c-8b75-5558e722fd87.png)
 
 
-- Open 'sshd_config_ubuntu.j2' file and add 'AllowUsers'.
+- Откройте файл 'sshd_config_ubuntu.j2' и добавьте 'AllowUsers'.
 
 ```
 nano sshd_config_ubuntu.j2
@@ -32,8 +32,8 @@ AllowUsers {{ ssh_users }}
 
 ![image](https://user-images.githubusercontent.com/10358317/202685736-463d1e46-2f00-4852-a8c3-f6f62e861399.png)
 
-- Go to 'host_vars' directory,
-- Change the content of this host_vars files
+- Перейдите в каталог 'host_vars',
+- Добавьте переменные хостов в файлы host_vars
 
 ```
 nano 172.21.69.156.yml
@@ -44,7 +44,7 @@ ssh_template_file: sshd_config_ubuntu.j2
 
 ![image](https://user-images.githubusercontent.com/10358317/202680949-69c1f1dd-b51f-4900-8bdd-992955707293.png)
 
-- File contents:
+- Содержимое файла:
 
 ```
 apache_package_name: apache2
@@ -56,12 +56,12 @@ ssh_template_file: sshd_config_ubuntu.j2
 
 ![image](https://user-images.githubusercontent.com/10358317/202682564-b6ed46b2-b155-4366-9acc-6158236e5643.png)
 
-- Add another task to use templates
+- Добавьте новую задачу на применение шаблонов
 
 ![image](https://user-images.githubusercontent.com/10358317/202683263-66005498-8f3a-43ac-9745-ec63f6788ddc.png)
 
-- Open and add ('nano main.yml')
-- After generating sshh_config file, it triggers handler (restart_ssh)
+- Откройте и добавьте ('nano main.yml')
+- После изменения файла sshh_config file, должен сработать хэндлер (restart_ssh)
 
 ```
 - name: generate sshd_config file using templates
@@ -77,7 +77,7 @@ ssh_template_file: sshd_config_ubuntu.j2
 
 ![image](https://user-images.githubusercontent.com/10358317/202692366-c606995e-0eb5-4f7b-82ec-7a398750df1b.png)
 
-- Create handlers and create 'main.yml' file
+- Создайте данный хэндлер в 'main.yml'
 
 ```
 - name: restart_sshd
@@ -88,15 +88,15 @@ ssh_template_file: sshd_config_ubuntu.j2
 
 ![image](https://user-images.githubusercontent.com/10358317/202687675-fcc12387-9f4f-4f70-a357-797bf3ad1738.png)
 
-- Run:
+- Запустите:
 
 ```
 ansible-playbook site.yml
 ```
 ![image](https://user-images.githubusercontent.com/10358317/202692817-02c63dd3-86e4-47da-bec9-864cbc3a3510.png)
 
-- After running playbook, when we go to the 'node1' to see the content of sshd_config ('nano /etc/ssh/sshd_config').
-- 'AllowUsers newuser2022' is added.
+- После запуска плейбука, перейдите на 'node1' и проверьте содержимое файла sshd_config ('nano /etc/ssh/sshd_config').
+- Должно быть добавлено 'AllowUsers newuser2022'.
 
 ![image](https://user-images.githubusercontent.com/10358317/202694177-b202a08c-ff59-4739-b0e9-922c7e5d8d41.png)
 
