@@ -7,6 +7,7 @@
 
 - Проверьте выполнены ли у вас данные лабораторные работы:
   - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
+  - [LAB: VirtualBOX-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/VirtualBOX-SSH-Configuration.md)
   - [LAB: Implement First Playbook](https://github.com/gulyaeve/ansible_labs/blob/main/Implement-First-Playbook.md)
 
 ### Шаги

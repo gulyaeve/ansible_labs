@@ -9,6 +9,7 @@ Tags are useful when we want to run specific part of the playbook. If we tagged 
 
 - Проверьте выполнены ли у вас данные лабораторные работы:
   - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
+  - [LAB: VirtualBOX-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/VirtualBOX-SSH-Configuration.md)
 
 ### Шаги
 

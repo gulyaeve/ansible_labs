@@ -5,6 +5,7 @@
 
 # Список лабораторных работ 
 - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
+- [LAB: VirtualBOX-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/VirtualBOX-SSH-Configuration.md)
 - [LAB: Install Ansible and Test Basic Ansible (Ad-Hoc) Commands](https://github.com/gulyaeve/ansible_labs/blob/main/Install-Ansible-Basic-Commands.md)
 - [LAB: Implement First Playbook](https://github.com/gulyaeve/ansible_labs/blob/main/Implement-First-Playbook.md)
 - [LAB: Playing Docker Module](https://github.com/gulyaeve/ansible_labs/blob/main/Docker-Module.md)
@@ -93,6 +94,7 @@
 - В данном курсе будет использоваться Multipass - легковесное решение для быстрого запуска ВМ на базе Ubuntu.
 - Установка на Linux, Windows и MacOs: https://multipass.run/install
 - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
+- [LAB: VirtualBOX-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/VirtualBOX-SSH-Configuration.md)
 
 ## Базовые команды Ansible (Ad-Hoc Commands) <a name="commands"></a>
 
