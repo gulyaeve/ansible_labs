@@ -19,6 +19,7 @@
 - [LAB: Host Variables](https://github.com/gulyaeve/ansible_labs/blob/main/Host-Variables.md)
 - [LAB: Handlers](https://github.com/gulyaeve/ansible_labs/blob/main/Handlers.md)
 - [LAB: Templates](https://github.com/gulyaeve/ansible_labs/blob/main/Templates.md)
+- [LAB: Practice](https://github.com/gulyaeve/ansible_labs/blob/main/Practice.md)
 
 # Содержание
 - [Введение](#motivation)
@@ -39,6 +40,7 @@
 - [Шаблоны](#templates)
 - [Дебаггинг](#debugging)
 - [Дополнительные возможности](#details)
+- [Задания для самостоятельного выполнения](#practice)
 - [Другие полезные ресурсы по Ansible](#resource)
 - [Ссылки](#references)
 
@@ -389,6 +391,12 @@ tasks:
     state: absent
     recurse: yes        # optional
 ```
+
+## Задания для самостоятельного выполнения <a name="practice"></a>
+
+- Перейдите к лабораторной работе:
+  - [LAB: Practice](https://github.com/gulyaeve/ansible_labs/blob/main/Practice.md)
+
 ## Другие полезные ресурсы по Ansible <a name="resource"></a>
 - https://docs.ansible.com/ansible/2.9/
 - Video Tutorial: https://www.youtube.com/watch?v=3RiVKs8GHYQ&list=PLT98CRl2KxKEUHie1m24-wkyHpEsa4Y70

@@ -190,8 +190,3 @@ ansible-playbook site.yml
 
 ![image](https://user-images.githubusercontent.com/10358317/202458341-cd28db4c-4ba2-4b0b-8edd-0b245d4f6f07.png)
 
-### Задания для самостоятельного выполнения
-
-- Самостоятельно создайте роль для установки и настройки zabbix-server на хосте [Инструкция](https://www.zabbix.com/download?zabbix=7.2&os_distribution=ubuntu&os_version=24.04&components=server_frontend_agent&db=mysql&ws=apache)
-- Также сделайте роль для zabbix-agent
-- Один из хостов сделайте zabbix-server, остальные zabbix-agent
