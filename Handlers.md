@@ -1,17 +1,17 @@
 ## LAB: Handlers
 
-This scenario shows:
-- how to create handlers.
+В этой лабораторной работе:
+- как создавать хэндлеры (обработчики).
 
-### Prerequisite
+### Подготовка
 
-- You should have a look following lab, nodes that are created in that LAB, are using in ansible commands
+- Проверьте выполнены ли у вас данные лабораторные работы:
   - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
 
-### Steps
+### Шаги
 
-- Open 'roles/web_servers/tasks/main.yml', update followings (add notify: restart_apache):
-- The variables defined near notify calls the task that is defined in 'handlers/main.yml'
+- Откройте 'roles/web_servers/tasks/main.yml', добавьте notify: restart_apache:
+- Переменные определнные рядом с notify вызовут задачу, которая определена в 'handlers/main.yml'
 
 ```
 - name: change email address for admin (Ubuntu)
@@ -27,7 +27,7 @@ This scenario shows:
  ![image](https://user-images.githubusercontent.com/10358317/202517097-3f895a18-af2f-4103-a5af-18632dea71df.png)
 
   
-- All 'roles/web_servers/tasks/main.yml':
+- Весь 'roles/web_servers/tasks/main.yml':
 ```
 - name: install apache and php
   tags: ubuntu,apache,apache2
@@ -76,7 +76,7 @@ This scenario shows:
     mode: 0755
 ```
 
-- Create 'handlers' directory under 'roles/web_servers' and create 'main.yml' 
+- Создайте каталог 'handlers' в 'roles/web_servers' и создайте файл 'main.yml' 
 
 ```
 - name: restart_apache
@@ -87,21 +87,21 @@ This scenario shows:
 
 ![image](https://user-images.githubusercontent.com/10358317/202516238-4bd6f722-656f-4bd7-a3a0-135afc562a63.png)
 
-- Run:
+- Запустите:
 
 ```
 ansible-playbook site.yml
 ```
 
-- Update the mail address to trigger the handler (restart_apache). Unless the task that has notify is changed, it cannot trigger handler task.   
+- Измените адрес почты, чтобы вызвать хэндер (restart_apache). Если задача у которой есть notify не будет изменена (changed), то хэндлер не будет вызван.   
 
 ![image](https://user-images.githubusercontent.com/10358317/202518007-922c1f40-0c66-4a89-a121-8b1c16d5d30b.png)
 
-- Handler is called.
+- Хэндлер вызван.
 
 ![image](https://user-images.githubusercontent.com/10358317/202517584-71df6b36-314b-4ceb-af23-6d73cded4e5b.png)
 
-- File/Directory structure:
+- Структура файлов:
 
 ![image](https://user-images.githubusercontent.com/10358317/202518840-c9aa8a6c-a134-444d-9e00-53d60b1ad7dc.png)
 

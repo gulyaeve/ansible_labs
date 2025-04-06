@@ -1,7 +1,7 @@
 ## LAB: Host Variables
 
 В этой лабораторной работе:
-- how to create host variables
+- как создавать переменные хостов
 
 ### Подготовка
 

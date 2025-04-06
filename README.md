@@ -35,7 +35,7 @@
 - [Добавление пользователей](#users)
 - [Роли](#roles)
 - [Переменные хостов](#host_variables)
-- [Handlers](#handlers)
+- [Хэндлеры](#handlers)
 - [Templates](#templates)
 - [Debugging](#debugging)
 - [Details](#details)
@@ -294,12 +294,12 @@ ansible-galaxy role init "role_name"
 - Перейдите к лабораторной работе:
   - [LAB: Host Variables](https://github.com/gulyaeve/ansible_labs/blob/main/Host-Variables.md)
 
-## Handlers <a name="handlers"></a>
-- To trigger/notify other Ansible code, handlers are used.
+## Хэндлеры <a name="handlers"></a>
+- Хэндлеры (обработчики) используются для вызова (Notify) определённых Ansible задач.
 
   ![image](https://user-images.githubusercontent.com/10358317/203547977-c5ced352-d323-4be6-bcd0-31a6d3df2735.png)
 
-- Go to LAB to learn how:
+- Перейдите к лабораторной работе:
   - [LAB: Handlers](https://github.com/gulyaeve/ansible_labs/blob/main/Handlers.md)
 
 ## Templates <a name="templates"></a>
