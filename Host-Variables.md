@@ -1,16 +1,16 @@
 ## LAB: Host Variables
 
-This scenario shows:
+В этой лабораторной работе:
 - how to create host variables
 
-### Prerequisite
+### Подготовка
 
-- You should have a look following lab, nodes that are created in that LAB, are using in ansible commands
+- Проверьте выполнены ли у вас данные лабораторные работы:
   - [LAB: Multipass-SSH Configuration (Create Ansible Test Environment)](https://github.com/gulyaeve/ansible_labs/blob/main/Multipass-SSH-Configuration.md)
 
-### Steps
+### Шаги
 
-- Create 'host_vars' directory
+- Создайте каталог 'host_vars'
 
 ```
 mkdir host_vars
@@ -18,10 +18,9 @@ mkdir host_vars
 
 ![image](https://user-images.githubusercontent.com/10358317/202507475-c42f278e-0999-4cdd-b9dd-c60d52d44639.png)
 
-- If the nodes in the inventory are defined with IPs, create file with 'IP.yml' (if they are defined with domain name, files are 
-'domain_name.yml')
+- Если хосты в файле инвентаризации записаны с использованием IP-адресов, создайте файл с указанием этого адреса в имени 'IP.yml' (если они записаны по доменному имени, в названии файла укажите это доменное имя 'domain_name.yml')
 
-- Add following variable into the file:
+- Добавтье следующие переменные в файл:
 
 ```
 apache_package_name: apache2
@@ -31,12 +30,12 @@ php_package_name: libapache2-mod-php
 
 ![image](https://user-images.githubusercontent.com/10358317/202508266-b824fb3b-c5bf-4b91-9b20-a8a5fee4181b.png)
 
-- We have host.yml files and host_vars in the yml file
+- Теперь для каждого хоста у нас есть файлы с переменными host_vars
 
 ![image](https://user-images.githubusercontent.com/10358317/202508480-f7e094da-0d31-4327-a219-82e690b41acf.png)
 
-- Update 'roles/web_servers/tasks/main.yml' by adding variables (with quotation mark ") that are defined in files in host_vars directory.
-- For each node, defined host variables are used for variables. 
+- Обновите 'roles/web_servers/tasks/main.yml' с добавлением переменных (используйте кавычки ") которые определены в файлах из каталога host_vars.
+- Для каждого хоста определены свои значения переменных. 
 
 ```
 - name: install apache and php
@@ -95,7 +94,7 @@ php_package_name: libapache2-mod-php
 
 ![image](https://user-images.githubusercontent.com/10358317/202510904-92f51a73-83d1-4c19-b376-37d8c236e7c4.png)
 
-Run:
+Запустите:
 
 ```
 ansible-playbook site.yml
