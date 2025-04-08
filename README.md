@@ -187,11 +187,7 @@ ansible all --list-hosts
 
 - Перейдите к лабораторной работе:
   - [LAB: Playing Docker Module](https://github.com/gulyaeve/ansible_labs/blob/main/Docker-Module.md)
-
-- Перейдите к лабораторной работе:
   - [LAB: Important (Mostly Possible Used) Modules Sample Tasks](https://github.com/gulyaeve/ansible_labs/blob/main/Important-Modules-Sample-Tasks.md)
-
-- Перейдите к лабораторной работе:
   - [LAB: Refactoring / Improving Playbook](https://github.com/gulyaeve/ansible_labs/blob/main/Refactoring-Playbook.md)
   
 - Все модули в Ansible: 
