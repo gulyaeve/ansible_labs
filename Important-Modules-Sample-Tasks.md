@@ -398,4 +398,7 @@
       Invoke-Expression ((New-Object Net.WebClient).DownloadString($url))
       exit
   delegate_to: localhost
-```  
+```
+
+### Задания для самостоятельного выполнения
+- Измените порт по умолчанию для apache (lineinfile)

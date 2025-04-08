@@ -19,6 +19,8 @@
 ```
 - Проверьте, что ресурс не доступен
 
+### Проектное задание
+
 #### Настройка Zabbix
 - Самостоятельно создайте роль для установки и настройки zabbix-server на хосте [Инструкция](https://www.zabbix.com/download?zabbix=7.2&os_distribution=ubuntu&os_version=24.04&components=server_frontend_agent&db=mysql&ws=apache)
 - Также сделайте роль для установки и настройки zabbix-agent на других хостах [Инструкция](https://www.zabbix.com/download?zabbix=7.2&os_distribution=ubuntu&os_version=24.04&components=agent&db=&ws=)
