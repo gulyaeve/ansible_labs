@@ -69,8 +69,8 @@
 
     - name: Install Docker Module for Python
       tags: install
-      pip:
-        name: docker
+      apt:
+        name: python3-docker
 
     - name: Pull default Docker image
       tags: pull
