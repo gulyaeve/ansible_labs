@@ -290,3 +290,11 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 ## Reference
 
 - https://www.youtube.com/watch?v=soeBHGAMkoQ&list=PLT98CRl2KxKEUHie1m24-wkyHpEsa4Y70&index=12
+
+### Задания для самостоятельного выполнения
+
+- создайте файл для изменения порта ssh
+- сделайте плейбук, который копирует данный файл на хосты (/etc/ssh/sshd_config.d/*.conf)
+- добавьте перезапуск сервиса при измении порта
+- проверьте чтобы порт был в файле инвентаризации
+
