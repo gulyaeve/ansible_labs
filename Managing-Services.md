@@ -152,8 +152,8 @@ sudo nano /etc/apache2/sites-available/000-default.conf
     tags: ubuntu,apache,apache2
     lineinfile:
       path: /etc/apache2/sites-available/000-default.conf
-      regexp: '^ServerAdmin'
-      line: ServerAdmin somebody@somewhere.com
+      regexp: 'ServerAdmin webmaster@localhost'
+      line: '       ServerAdmin somebody@somewhere.com'
     when: ansible_distribution == "Ubuntu"
     register: apache2_service
 
