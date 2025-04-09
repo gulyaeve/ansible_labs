@@ -187,6 +187,7 @@ ansible-playbook --ask-become-pass site.yml
     unarchive:
       src: https://hashicorp-releases.yandexcloud.net/terraform/1.3.4/terraform_1.3.4_linux_amd64.zip
       dest: /usr/local/bin
+      validate_certs: false
       remote_src: yes
       owner: root
       group: root
