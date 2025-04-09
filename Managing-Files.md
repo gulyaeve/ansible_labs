@@ -183,8 +183,9 @@ ansible-playbook --ask-become-pass site.yml
       name: unzip
 
   - name: install terraform
+    # ссылка может быть не доступна
     unarchive:
-      src: https://releases.hashicorp.com/terraform/1.3.4/terraform_1.3.4_linux_amd64.zip
+      src: https://hashicorp-releases.yandexcloud.net/terraform/1.3.4/terraform_1.3.4_linux_amd64.zip
       dest: /usr/local/bin
       remote_src: yes
       owner: root
