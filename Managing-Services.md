@@ -91,7 +91,7 @@
 
   - name: install terraform
     unarchive:
-      src: https://releases.hashicorp.com/terraform/1.3.4/terraform_1.3.4_linux_amd64.zip
+      src: https://mirror.selectel.ru/3rd-party/hashicorp-releases/terraform/1.3.4/terraform_1.3.4_linux_amd64.zip
       dest: /usr/local/bin
       remote_src: yes
       owner: root
@@ -257,7 +257,7 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 
   - name: install terraform
     unarchive:
-      src: https://releases.hashicorp.com/terraform/1.3.4/terraform_1.3.4_linux_amd64.zip
+      src: https://mirror.selectel.ru/3rd-party/hashicorp-releases/terraform/1.3.4/terraform_1.3.4_linux_amd64.zip
       dest: /usr/local/bin
       remote_src: yes
       owner: root
