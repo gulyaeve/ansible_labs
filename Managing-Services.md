@@ -173,7 +173,7 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 
 ![image](https://user-images.githubusercontent.com/10358317/201755326-44284c95-db0d-46c3-8f22-f224d845bd5b.png)
 
-- Измените site.yml:
+- Финальный site.yml:
 
 ``` 
 ---
