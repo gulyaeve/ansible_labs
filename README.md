@@ -12,12 +12,12 @@
 - [LAB: Important (Mostly Possible Used) Modules Sample Tasks](https://github.com/gulyaeve/ansible_labs/blob/main/Important-Modules-Sample-Tasks.md)
 - [LAB: Refactoring / Improving Playbook](https://github.com/gulyaeve/ansible_labs/blob/main/Refactoring-Playbook.md)
 - [LAB: Targeting Specific Nodes (Grouping)](https://github.com/gulyaeve/ansible_labs/blob/main/Targeting-Specific-Node.md)
+- [LAB: Host Variables](https://github.com/gulyaeve/ansible_labs/blob/main/Host-Variables.md)
 - [LAB: Adding Tags](https://github.com/gulyaeve/ansible_labs/blob/main/Tags.md)
 - [LAB: Managing Files](https://github.com/gulyaeve/ansible_labs/blob/main/Managing-Files.md)
 - [LAB: Managing Services](https://github.com/gulyaeve/ansible_labs/blob/main/Managing-Services.md)
 - [LAB: Adding Users](https://github.com/gulyaeve/ansible_labs/blob/main/Adding-User.md)
 - [LAB: Roles](https://github.com/gulyaeve/ansible_labs/blob/main/Roles.md)
-- [LAB: Host Variables](https://github.com/gulyaeve/ansible_labs/blob/main/Host-Variables.md)
 - [LAB: Handlers](https://github.com/gulyaeve/ansible_labs/blob/main/Handlers.md)
 - [LAB: Templates](https://github.com/gulyaeve/ansible_labs/blob/main/Templates.md)
 - [LAB: Practice](https://github.com/gulyaeve/ansible_labs/blob/main/Practice.md)
@@ -31,12 +31,12 @@
 - [Модули Ansible](#modules)
 - [Плейбуки Ansible](#playbooks)
 - [Файл инвентаризации - указание определенных хостов](#inventory)
+- [Переменные хостов](#host_variables)
 - [Теги](#tags)
 - [Управление файлами](#files)
 - [Управление сервисами](#services)
 - [Добавление пользователей](#users)
 - [Роли](#roles)
-- [Переменные хостов](#host_variables)
 - [Хэндлеры](#handlers)
 - [Шаблоны](#templates)
 - [Дебаггинг](#debugging)
@@ -221,6 +221,16 @@ ansible all --list-hosts
 - Перейдите к лабораторной работе:
   - [LAB: Targeting Specific Nodes (Grouping)](https://github.com/gulyaeve/ansible_labs/blob/main/Targeting-Specific-Node.md)
 
+## Переменные хостов <a name="host_variables"></a>
+- Есть возможность определить переменные для каждого из хостов. 
+
+  ![image](https://user-images.githubusercontent.com/10358317/203547741-9a52592b-7385-4e77-89ad-d8128ecf16b7.png)
+  
+  ![image](https://user-images.githubusercontent.com/10358317/203547770-7eef113c-c9ce-4043-9b02-588ba86fd747.png)
+
+- Перейдите к лабораторной работе:
+  - [LAB: Host Variables](https://github.com/gulyaeve/ansible_labs/blob/main/Host-Variables.md)
+
 ## Теги <a name="tags"></a>
 - При помощи тегов можно запускать определенную часть плейбука.
 
@@ -283,16 +293,6 @@ ansible-galaxy role init "role_name"
 
 - Перейдите к лабораторной работе:
   - [LAB: Roles](https://github.com/gulyaeve/ansible_labs/blob/main/Roles.md)
-
-## Переменные хостов <a name="host_variables"></a>
-- Есть возможность определить переменные для каждого из хостов. 
-
-  ![image](https://user-images.githubusercontent.com/10358317/203547741-9a52592b-7385-4e77-89ad-d8128ecf16b7.png)
-  
-  ![image](https://user-images.githubusercontent.com/10358317/203547770-7eef113c-c9ce-4043-9b02-588ba86fd747.png)
-
-- Перейдите к лабораторной работе:
-  - [LAB: Host Variables](https://github.com/gulyaeve/ansible_labs/blob/main/Host-Variables.md)
 
 ## Хэндлеры <a name="handlers"></a>
 - Хэндлеры (обработчики) используются для вызова (Notify) определённых Ansible задач.
