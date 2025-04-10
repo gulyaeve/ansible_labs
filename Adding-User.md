@@ -160,7 +160,8 @@ cat /etc/passwd
     tags: always
     authorized_key:
       user: newuser111
-      key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCdEJ8xu1C0kJ4Y39x2bfptMQVdxnPDXrkjmDvB44oDV78yKWg/0B/kacMqiEaaiEyAedH>
+      # Содержимое публичного ключа необходимо вставить своё:
+      key: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQCdEJ8xu1C0kJ4Y39x2bfptMQVdxnPDXrkjmDvB44oDV78yKWg/0B/kacMqiEaaiEyAedH>"
 
   - name: add sudoers file for newuser111
     tags: always

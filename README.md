@@ -20,6 +20,7 @@
 - [LAB: Roles](https://github.com/gulyaeve/ansible_labs/blob/main/Roles.md)
 - [LAB: Handlers](https://github.com/gulyaeve/ansible_labs/blob/main/Handlers.md)
 - [LAB: Templates](https://github.com/gulyaeve/ansible_labs/blob/main/Templates.md)
+- [LAB: Create Module](https://github.com/gulyaeve/ansible_labs/blob/main/Create-Module.md)
 - [LAB: Practice](https://github.com/gulyaeve/ansible_labs/blob/main/Practice.md)
 
 # Содержание
@@ -39,6 +40,7 @@
 - [Роли](#roles)
 - [Хэндлеры](#handlers)
 - [Шаблоны](#templates)
+- [Создание своих модулей](#own-modules)
 - [Дебаггинг](#debugging)
 - [Дополнительные возможности](#details)
 - [Задания для самостоятельного выполнения](#practice)
@@ -321,6 +323,12 @@ ansible-playbook findtest.yaml -e "DIR=/apps/Tomcat FILEEXT=*.log DAYSOLD=30"
 
 - Перейдите к лабораторной работе:
   - [LAB: Templates](https://github.com/gulyaeve/ansible_labs/blob/main/Templates.md)
+
+## Создание своих модулей <a name="own-modules"></a>
+- Вы можете создавать свои модули на Python
+
+- Перейдите к лабораторной работе:
+- [LAB: Create Module](https://github.com/gulyaeve/ansible_labs/blob/main/Create-Module.md)
 
 ## Дебаггинг <a name="debugging"></a>
 
