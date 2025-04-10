@@ -107,3 +107,6 @@ ansible-playbook site.yml
 ![image](https://user-images.githubusercontent.com/10358317/202518840-c9aa8a6c-a134-444d-9e00-53d60b1ad7dc.png)
 
 
+### Задания для самостоятельного выполнения
+
+- Организуйте хэндлер для перезапуска сервера PostgreSQL из прошлой лабораторной работы
